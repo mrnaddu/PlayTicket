@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\..\common.props" />
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <DockerfileContext>..\..</DockerfileContext>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Remove="appsettings.json" />
+        <Content Include="appsettings.json">
+            <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <None Remove="appsettings.secrets.json" />
+        <Content Include="appsettings.secrets.json">
+            <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
+        <PackageReference Include="Serilog.Extensions.Logging" Version="8.0.0" />
+        <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
+        <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+        <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.Autofac" Version="8.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Remove="Logs\**" />
+        <Content Remove="Logs\**" />
+        <EmbeddedResource Remove="Logs\**" />
+        <None Remove="Logs\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\services\administration\src\PlayTicket.Administration.Application.Contracts\PlayTicket.Administration.Application.Contracts.csproj" />
+        <ProjectReference Include="..\..\services\administration\src\PlayTicket.Administration.EntityFrameworkCore\PlayTicket.Administration.EntityFrameworkCore.csproj" />
+        <ProjectReference Include="..\..\services\identity\src\PlayTicket.IdentityService.Application.Contracts\PlayTicket.IdentityService.Application.Contracts.csproj" />
+        <ProjectReference Include="..\..\services\identity\src\PlayTicket.IdentityService.EntityFrameworkCore\PlayTicket.IdentityService.EntityFrameworkCore.csproj" />
+        <ProjectReference Include="..\..\services\saas\src\PlayTicket.SaaS.Application.Contracts\PlayTicket.SaaS.Application.Contracts.csproj" />
+        <ProjectReference Include="..\..\services\saas\src\PlayTicket.SaaS.EntityFrameworkCore\PlayTicket.SaaS.EntityFrameworkCore.csproj" />
+        <ProjectReference Include="..\PlayTicket.Microservice.Shared\PlayTicket.Microservice.Shared.csproj" />
+    </ItemGroup>
+
+</Project>

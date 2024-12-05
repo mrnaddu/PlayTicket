@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "PlayTicket.IdentityService": {
+      "path": "PlayTicket.IdentityService.abpmdl.json"
+    }
+  }
+}

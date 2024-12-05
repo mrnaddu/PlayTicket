@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PlayTicket.DbMigrator": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

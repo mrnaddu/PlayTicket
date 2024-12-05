@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "PlayTicket.SaaS": {
+      "path": "PlayTicket.SaaS.abpmdl.json"
+    }
+  }
+}

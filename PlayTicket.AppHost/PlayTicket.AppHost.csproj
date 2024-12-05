@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>0aae16e2-bc34-40f6-b9c4-10379cc46b10</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\services\administration\host\PlayTicket.Administration.HttpApi.Host\PlayTicket.Administration.HttpApi.Host.csproj" />
+    <ProjectReference Include="..\services\identity\host\PlayTicket.IdentityService.HttpApi.Host\PlayTicket.IdentityService.HttpApi.Host.csproj" />
+    <ProjectReference Include="..\services\projects\host\PlayTicket.Projects.HttpApi.Host\PlayTicket.Projects.HttpApi.Host.csproj" />
+    <ProjectReference Include="..\services\saas\host\PlayTicket.SaaS.HttpApi.Host\PlayTicket.SaaS.HttpApi.Host.csproj" />
+    <ProjectReference Include="..\apps\PlayTicket.AuthServer\PlayTicket.AuthServer.csproj" />
+    <ProjectReference Include="..\apps\PlayTicket.Blazor\PlayTicket.Blazor.csproj" />
+    <ProjectReference Include="..\apps\PlayTicket.Blazor.Server\PlayTicket.Blazor.Server.csproj" />
+    <ProjectReference Include="..\gateway\PlayTicket.Gateway\PlayTicket.Gateway.csproj" />
+  </ItemGroup>
+
+</Project>

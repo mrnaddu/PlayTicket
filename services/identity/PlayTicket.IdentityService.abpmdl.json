@@ -1,0 +1,79 @@
+{
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {},
+      "host": {}
+    }
+  },
+  "packages": {
+    "PlayTicket.IdentityService.Domain.Shared": {
+      "path": "src/PlayTicket.IdentityService.Domain.Shared/PlayTicket.IdentityService.Domain.Shared.abppkg.json",
+      "folder": "src"
+    },
+    "PlayTicket.IdentityService.Domain": {
+      "path": "src/PlayTicket.IdentityService.Domain/PlayTicket.IdentityService.Domain.abppkg.json",
+      "folder": "src"
+    },
+    "PlayTicket.IdentityService.Application.Contracts": {
+      "path": "src/PlayTicket.IdentityService.Application.Contracts/PlayTicket.IdentityService.Application.Contracts.abppkg.json",
+      "folder": "src"
+    },
+    "PlayTicket.IdentityService.Application": {
+      "path": "src/PlayTicket.IdentityService.Application/PlayTicket.IdentityService.Application.abppkg.json",
+      "folder": "src"
+    },
+    "PlayTicket.IdentityService.EntityFrameworkCore": {
+      "path": "src/PlayTicket.IdentityService.EntityFrameworkCore/PlayTicket.IdentityService.EntityFrameworkCore.abppkg.json",
+      "folder": "src"
+    },
+    "PlayTicket.IdentityService.MongoDB": {
+      "path": "src/PlayTicket.IdentityService.MongoDB/PlayTicket.IdentityService.MongoDB.abppkg.json",
+      "folder": "src"
+    },
+    "PlayTicket.IdentityService.HttpApi": {
+      "path": "src/PlayTicket.IdentityService.HttpApi/PlayTicket.IdentityService.HttpApi.abppkg.json",
+      "folder": "src"
+    },
+    "PlayTicket.IdentityService.HttpApi.Client": {
+      "path": "src/PlayTicket.IdentityService.HttpApi.Client/PlayTicket.IdentityService.HttpApi.Client.abppkg.json",
+      "folder": "src"
+    },
+    "PlayTicket.IdentityService.TestBase": {
+      "path": "test/PlayTicket.IdentityService.TestBase/PlayTicket.IdentityService.TestBase.abppkg.json",
+      "folder": "test"
+    },
+    "PlayTicket.IdentityService.EntityFrameworkCore.Tests": {
+      "path": "test/PlayTicket.IdentityService.EntityFrameworkCore.Tests/PlayTicket.IdentityService.EntityFrameworkCore.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "PlayTicket.IdentityService.MongoDB.Tests": {
+      "path": "test/PlayTicket.IdentityService.MongoDB.Tests/PlayTicket.IdentityService.MongoDB.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "PlayTicket.IdentityService.Domain.Tests": {
+      "path": "test/PlayTicket.IdentityService.Domain.Tests/PlayTicket.IdentityService.Domain.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "PlayTicket.IdentityService.Application.Tests": {
+      "path": "test/PlayTicket.IdentityService.Application.Tests/PlayTicket.IdentityService.Application.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "PlayTicket.IdentityService.HttpApi.Host": {
+      "path": "host/PlayTicket.IdentityService.HttpApi.Host/PlayTicket.IdentityService.HttpApi.Host.abppkg.json",
+      "folder": "host"
+    },
+    "PlayTicket.IdentityService.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/PlayTicket.IdentityService.HttpApi.Client.ConsoleTestApp/PlayTicket.IdentityService.HttpApi.Client.ConsoleTestApp.abppkg.json",
+      "folder": "test"
+    },
+    "PlayTicket.IdentityService.IdentityServer": {
+      "path": "host/PlayTicket.IdentityService.IdentityServer/PlayTicket.IdentityService.IdentityServer.abppkg.json",
+      "folder": "host"
+    },
+    "PlayTicket.IdentityService.Host.Shared": {
+      "path": "host/PlayTicket.IdentityService.Host.Shared/PlayTicket.IdentityService.Host.Shared.abppkg.json",
+      "folder": "host"
+    }
+  }
+}
