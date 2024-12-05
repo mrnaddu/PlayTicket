@@ -3,7 +3,7 @@ using Xunit;
 
 namespace PlayTicket.Administration.Samples;
 
-public class SampleManager_Tests : AdministrationDomainTestBase
+public class SampleManager_Tests : CashVoucherServiceDomainTestBase
 {
     //private readonly SampleManager _sampleManager;
 

@@ -4,7 +4,7 @@ using Xunit;
 
 namespace PlayTicket.Administration.Samples;
 
-public class SampleAppService_Tests : AdministrationApplicationTestBase
+public class SampleAppService_Tests : CashVoucherServiceApplicationTestBase
 {
     private readonly ISampleAppService _sampleAppService;
 

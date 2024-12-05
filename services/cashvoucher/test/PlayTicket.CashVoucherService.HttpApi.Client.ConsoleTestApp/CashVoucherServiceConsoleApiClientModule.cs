@@ -9,7 +9,7 @@ namespace PlayTicket.Administration;
     typeof(AdministrationHttpApiClientModule),
     typeof(AbpHttpClientIdentityModelModule)
     )]
-public class AdministrationConsoleApiClientModule : AbpModule
+public class CashVoucherServiceConsoleApiClientModule : AbpModule
 {
 
 }

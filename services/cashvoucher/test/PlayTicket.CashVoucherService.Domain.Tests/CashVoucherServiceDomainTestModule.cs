@@ -10,7 +10,7 @@ namespace PlayTicket.Administration;
 [DependsOn(
     typeof(AdministrationEntityFrameworkCoreTestModule)
     )]
-public class AdministrationDomainTestModule : AbpModule
+public class CashVoucherServiceDomainTestModule : AbpModule
 {
 
 }

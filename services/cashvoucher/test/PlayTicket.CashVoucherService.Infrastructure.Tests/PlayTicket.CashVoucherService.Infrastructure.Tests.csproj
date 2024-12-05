@@ -10,8 +10,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.0" />
-    <ProjectReference Include="..\..\src\PlayTicket.Administration.EntityFrameworkCore\PlayTicket.Administration.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="..\PlayTicket.Administration.TestBase\PlayTicket.Administration.TestBase.csproj" />
+    <ProjectReference Include="..\..\src\PlayTicket.CashVoucherService.Infrastructure\PlayTicket.CashVoucherService.Infrastructure.csproj" />
+    <ProjectReference Include="..\PlayTicket.CashVoucherService.TestBase\PlayTicket.CashVoucherService.TestBase.csproj" />
     <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="8.0.2" />
   </ItemGroup>
 

@@ -4,9 +4,9 @@ namespace PlayTicket.Administration;
 
 [DependsOn(
     typeof(AdministrationApplicationModule),
-    typeof(AdministrationDomainTestModule)
+    typeof(CashVoucherServiceDomainTestModule)
     )]
-public class AdministrationApplicationTestModule : AbpModule
+public class CashVoucherServiceApplicationTestModule : AbpModule
 {
 
 }

@@ -14,8 +14,8 @@
     <ItemGroup>
         <ProjectReference Include="..\..\..\..\shared\PlayTicket.Hosting.Shared\PlayTicket.Hosting.Shared.csproj" />
         <ProjectReference Include="..\..\src\PlayTicket.CashVoucherService.Application\PlayTicket.CashVoucherService.Application.csproj" />
-        <ProjectReference Include="..\..\src\PlayTicket.CashVoucherService.EntityFrameworkCore\PlayTicket.CashVoucherService.EntityFrameworkCore.csproj" />
         <ProjectReference Include="..\..\src\PlayTicket.CashVoucherService.HttpApi\PlayTicket.CashVoucherService.HttpApi.csproj" />
+        <ProjectReference Include="..\..\src\PlayTicket.CashVoucherService.Infrastructure\PlayTicket.CashVoucherService.Infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>
