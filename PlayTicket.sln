@@ -59,7 +59,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.UserService.Doma
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lambdas", "lambdas", "{50439E9A-ECB6-47ED-8555-498984221F92}"
 	ProjectSection(SolutionItems) = preProject
-		TextFile1.txt = TextFile1.txt
+		lambdas\lambdas.txt = lambdas\lambdas.txt
 	EndProjectSection
 EndProject
 Global
