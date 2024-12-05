@@ -1,9 +1,9 @@
 ﻿using Volo.Abp.Modularity;
 
-namespace PlayTicket.Administration;
+namespace PlayTicket.CashVoucherService;
 
 [DependsOn(
-    typeof(AdministrationApplicationModule),
+    typeof(CashVoucherServiceApplicationModule),
     typeof(CashVoucherServiceDomainTestModule)
     )]
 public class CashVoucherServiceApplicationTestModule : AbpModule

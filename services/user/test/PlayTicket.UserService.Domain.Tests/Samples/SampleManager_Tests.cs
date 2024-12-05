@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 using Xunit;
 
-namespace PlayTicket.Projects.Samples;
+namespace PlayTicket.UserService.Samples;
 
-public class SampleManager_Tests : ProjectsDomainTestBase
+public class SampleManager_Tests : UserServiceDomainTestBase
 {
     //private readonly SampleManager _sampleManager;
 

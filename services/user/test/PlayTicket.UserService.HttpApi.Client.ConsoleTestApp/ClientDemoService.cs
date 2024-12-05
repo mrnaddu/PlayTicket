@@ -3,11 +3,11 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using IdentityModel.Client;
 using Microsoft.Extensions.Configuration;
-using PlayTicket.Projects.Samples;
+using PlayTicket.UserService.Samples;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.IdentityModel;
 
-namespace PlayTicket.Projects;
+namespace PlayTicket.UserService;
 
 public class ClientDemoService : ITransientDependency
 {
@@ -72,23 +72,21 @@ public class ClientDemoService : ITransientDependency
 
         //Perform the actual HTTP request
 
-        using (var httpClient = new HttpClient())
+        using var httpClient = new HttpClient();
+        httpClient.SetBearerToken(accessToken);
+
+        var url = _configuration["RemoteServices:UserService:BaseUrl"] +
+                  "api/UserService/sample/authorized";
+
+        var responseMessage = await httpClient.GetAsync(url);
+        if (responseMessage.IsSuccessStatusCode)
         {
-            httpClient.SetBearerToken(accessToken);
-
-            var url = _configuration["RemoteServices:Projects:BaseUrl"] +
-                      "api/Projects/sample/authorized";
-
-            var responseMessage = await httpClient.GetAsync(url);
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                var responseString = await responseMessage.Content.ReadAsStringAsync();
-                Console.WriteLine("Result: " + responseString);
-            }
-            else
-            {
-                throw new Exception("Remote server returns error code: " + responseMessage.StatusCode);
-            }
+            var responseString = await responseMessage.Content.ReadAsStringAsync();
+            Console.WriteLine("Result: " + responseString);
+        }
+        else
+        {
+            throw new Exception("Remote server returns error code: " + responseMessage.StatusCode);
         }
     }
 
@@ -133,23 +131,21 @@ public class ClientDemoService : ITransientDependency
 
         //Perform the actual HTTP request
 
-        using (var httpClient = new HttpClient())
+        using var httpClient = new HttpClient();
+        httpClient.SetBearerToken(tokenResponse.AccessToken);
+
+        var url = _configuration["RemoteServices:UserService:BaseUrl"] +
+                  "api/UserService/sample/authorized";
+
+        var responseMessage = await httpClient.GetAsync(url);
+        if (responseMessage.IsSuccessStatusCode)
         {
-            httpClient.SetBearerToken(tokenResponse.AccessToken);
-
-            var url = _configuration["RemoteServices:Projects:BaseUrl"] +
-                      "api/Projects/sample/authorized";
-
-            var responseMessage = await httpClient.GetAsync(url);
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                var responseString = await responseMessage.Content.ReadAsStringAsync();
-                Console.WriteLine("Result: " + responseString);
-            }
-            else
-            {
-                throw new Exception("Remote server returns error code: " + responseMessage.StatusCode);
-            }
+            var responseString = await responseMessage.Content.ReadAsStringAsync();
+            Console.WriteLine("Result: " + responseString);
+        }
+        else
+        {
+            throw new Exception("Remote server returns error code: " + responseMessage.StatusCode);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Xunit;
 
-namespace PlayTicket.Administration.Samples;
+namespace PlayTicket.CashVoucherService.Samples;
 
 public class SampleManager_Tests : CashVoucherServiceDomainTestBase
 {

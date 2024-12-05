@@ -6,14 +6,14 @@ using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.Sqlite;
 using Volo.Abp.Modularity;
 
-namespace PlayTicket.Projects.EntityFrameworkCore;
+namespace PlayTicket.CashVoucherService.EntityFrameworkCore;
 
 [DependsOn(
-    typeof(ProjectsTestBaseModule),
-    typeof(ProjectsEntityFrameworkCoreModule),
+    typeof(CashVoucherServiceTestBaseModule),
+    typeof(CashVoucherServiceEntityFrameworkCoreModule),
     typeof(AbpEntityFrameworkCoreSqliteModule)
     )]
-public class ProjectsEntityFrameworkCoreTestModule : AbpModule
+public class CashVoucherServiceEntityFrameworkCoreTestModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
@@ -33,8 +33,8 @@ public class ProjectsEntityFrameworkCoreTestModule : AbpModule
         var connection = new SqliteConnection("Data Source=:memory:");
         connection.Open();
 
-        new ProjectsDbContext(
-            new DbContextOptionsBuilder<ProjectsDbContext>().UseSqlite(connection).Options
+        new CashVoucherServiceDbContext(
+            new DbContextOptionsBuilder<CashVoucherServiceDbContext>().UseSqlite(connection).Options
         ).GetService<IRelationalDatabaseCreator>().CreateTables();
 
         return connection;

@@ -1,11 +1,11 @@
-﻿using Microsoft.Extensions.Hosting;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Volo.Abp;
 
-namespace PlayTicket.Projects.HttpApi.Client.ConsoleTestApp;
+namespace PlayTicket.UserService;
 
 public class ConsoleTestAppHostedService : IHostedService
 {
@@ -18,19 +18,17 @@ public class ConsoleTestAppHostedService : IHostedService
 
     public async Task StartAsync(CancellationToken cancellationToken)
     {
-        using (var application = await AbpApplicationFactory.CreateAsync<ProjectsConsoleApiClientModule>(options =>
+        using var application = await AbpApplicationFactory.CreateAsync<UserServiceConsoleApiClientModule>(options =>
         {
-           options.Services.ReplaceConfiguration(_configuration);
-           options.UseAutofac();
-        }))
-        {
-            await application.InitializeAsync();
+            options.Services.ReplaceConfiguration(_configuration);
+            options.UseAutofac();
+        });
+        await application.InitializeAsync();
 
-            var demo = application.ServiceProvider.GetRequiredService<ClientDemoService>();
-            await demo.RunAsync();
+        var demo = application.ServiceProvider.GetRequiredService<ClientDemoService>();
+        await demo.RunAsync();
 
-            await application.ShutdownAsync();
-        }
+        await application.ShutdownAsync();
     }
 
     public Task StopAsync(CancellationToken cancellationToken)

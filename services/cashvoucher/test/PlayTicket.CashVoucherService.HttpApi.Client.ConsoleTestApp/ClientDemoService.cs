@@ -3,11 +3,11 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using IdentityModel.Client;
 using Microsoft.Extensions.Configuration;
-using PlayTicket.Administration.Samples;
+using PlayTicket.CashVoucherService.Samples;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.IdentityModel;
 
-namespace PlayTicket.Administration;
+namespace PlayTicket.CashVoucherService;
 
 public class ClientDemoService : ITransientDependency
 {
@@ -76,8 +76,8 @@ public class ClientDemoService : ITransientDependency
         {
             httpClient.SetBearerToken(accessToken);
 
-            var url = _configuration["RemoteServices:Administration:BaseUrl"] +
-                      "api/Administration/sample/authorized";
+            var url = _configuration["RemoteServices:CashVoucherService:BaseUrl"] +
+                      "api/CashVoucherService/sample/authorized";
 
             var responseMessage = await httpClient.GetAsync(url);
             if (responseMessage.IsSuccessStatusCode)
@@ -137,8 +137,8 @@ public class ClientDemoService : ITransientDependency
         {
             httpClient.SetBearerToken(tokenResponse.AccessToken);
 
-            var url = _configuration["RemoteServices:Administration:BaseUrl"] +
-                      "api/Administration/sample/authorized";
+            var url = _configuration["RemoteServices:CashVoucherService:BaseUrl"] +
+                      "api/CashVoucherService/sample/authorized";
 
             var responseMessage = await httpClient.GetAsync(url);
             if (responseMessage.IsSuccessStatusCode)

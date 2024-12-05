@@ -1,9 +1,9 @@
-﻿namespace PlayTicket.Administration;
+﻿namespace PlayTicket.CashVoucherService;
 
 /* Inherit from this class for your application layer tests.
  * See SampleAppService_Tests for example.
  */
-public abstract class CashVoucherServiceApplicationTestBase : AdministrationTestBase<CashVoucherServiceApplicationTestModule>
+public abstract class CashVoucherServiceApplicationTestBase : CashVoucherServiceTestBase<CashVoucherServiceApplicationTestModule>
 {
 
 }

@@ -2,11 +2,11 @@
 using Volo.Abp.Http.Client.IdentityModel;
 using Volo.Abp.Modularity;
 
-namespace PlayTicket.Administration;
+namespace PlayTicket.CashVoucherService;
 
 [DependsOn(
     typeof(AbpAutofacModule),
-    typeof(AdministrationHttpApiClientModule),
+    typeof(CashVoucherServiceHttpApiClientModule),
     typeof(AbpHttpClientIdentityModelModule)
     )]
 public class CashVoucherServiceConsoleApiClientModule : AbpModule

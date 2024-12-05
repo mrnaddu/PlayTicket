@@ -1,8 +1,8 @@
-﻿using PlayTicket.Administration.Samples;
+﻿using PlayTicket.CashVoucherService.Samples;
 
-namespace PlayTicket.Administration.EntityFrameworkCore.Samples;
+namespace PlayTicket.CashVoucherService.EntityFrameworkCore.Samples;
 
-public class SampleRepository_Tests : SampleRepository_Tests<AdministrationEntityFrameworkCoreTestModule>
+public class SampleRepository_Tests : SampleRepository_Tests<CashVoucherServiceEntityFrameworkCoreTestModule>
 {
     /* Don't write custom repository tests here, instead write to
      * the base class.

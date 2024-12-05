@@ -1,8 +1,8 @@
-﻿using PlayTicket.Projects.Samples;
+﻿using PlayTicket.UserService.Samples;
 
-namespace PlayTicket.Projects.EntityFrameworkCore.Samples;
+namespace PlayTicket.UserService.EntityFrameworkCore.Samples;
 
-public class SampleRepository_Tests : SampleRepository_Tests<ProjectsEntityFrameworkCoreTestModule>
+public class SampleRepository_Tests : SampleRepository_Tests<UserServiceEntityFrameworkCoreTestModule>
 {
     /* Don't write custom repository tests here, instead write to
      * the base class.

@@ -6,10 +6,10 @@ using Volo.Abp.Modularity;
 using Volo.Abp.Uow;
 using Volo.Abp.Testing;
 
-namespace PlayTicket.Administration;
+namespace PlayTicket.CashVoucherService;
 
 /* All test classes are derived from this class, directly or indirectly. */
-public abstract class AdministrationTestBase<TStartupModule> : AbpIntegratedTest<TStartupModule>
+public abstract class CashVoucherServiceTestBase<TStartupModule> : AbpIntegratedTest<TStartupModule>
     where TStartupModule : IAbpModule
 {
     protected override void SetAbpApplicationCreationOptions(AbpApplicationCreationOptions options)

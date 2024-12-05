@@ -6,10 +6,10 @@ using Volo.Abp.Modularity;
 using Volo.Abp.Uow;
 using Volo.Abp.Testing;
 
-namespace PlayTicket.Projects;
+namespace PlayTicket.UserService;
 
 /* All test classes are derived from this class, directly or indirectly. */
-public abstract class ProjectsTestBase<TStartupModule> : AbpIntegratedTest<TStartupModule>
+public abstract class UserServiceTestBase<TStartupModule> : AbpIntegratedTest<TStartupModule>
     where TStartupModule : IAbpModule
 {
     protected override void SetAbpApplicationCreationOptions(AbpApplicationCreationOptions options)

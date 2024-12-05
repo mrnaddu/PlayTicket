@@ -4,14 +4,14 @@ using Volo.Abp.DependencyInjection;
 using Volo.Abp.Guids;
 using Volo.Abp.MultiTenancy;
 
-namespace PlayTicket.Administration;
+namespace PlayTicket.CashVoucherService;
 
-public class AdministrationDataSeedContributor : IDataSeedContributor, ITransientDependency
+public class CashVoucherServiceDataSeedContributor : IDataSeedContributor, ITransientDependency
 {
     private readonly IGuidGenerator _guidGenerator;
     private readonly ICurrentTenant _currentTenant;
 
-    public AdministrationDataSeedContributor(
+    public CashVoucherServiceDataSeedContributor(
         IGuidGenerator guidGenerator, ICurrentTenant currentTenant)
     {
         _guidGenerator = guidGenerator;

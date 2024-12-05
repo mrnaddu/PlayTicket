@@ -2,9 +2,9 @@
 using Shouldly;
 using Xunit;
 
-namespace PlayTicket.Projects.Samples;
+namespace PlayTicket.UserService.Samples;
 
-public class SampleAppService_Tests : ProjectsApplicationTestBase
+public class SampleAppService_Tests : UserServiceApplicationTestBase
 {
     private readonly ISampleAppService _sampleAppService;
 

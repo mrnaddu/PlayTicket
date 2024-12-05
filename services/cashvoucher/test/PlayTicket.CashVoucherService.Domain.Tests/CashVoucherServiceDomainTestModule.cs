@@ -1,14 +1,14 @@
-﻿using PlayTicket.Administration.EntityFrameworkCore;
+﻿using PlayTicket.CashVoucherService.EntityFrameworkCore;
 using Volo.Abp.Modularity;
 
-namespace PlayTicket.Administration;
+namespace PlayTicket.CashVoucherService;
 
 /* Domain tests are configured to use the EF Core provider.
  * You can switch to MongoDB, however your domain tests should be
  * database independent anyway.
  */
 [DependsOn(
-    typeof(AdministrationEntityFrameworkCoreTestModule)
+    typeof(CashVoucherServiceEntityFrameworkCoreTestModule)
     )]
 public class CashVoucherServiceDomainTestModule : AbpModule
 {

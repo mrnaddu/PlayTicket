@@ -6,15 +6,15 @@ using Volo.Abp.Data;
 using Volo.Abp.Modularity;
 using Volo.Abp.Threading;
 
-namespace PlayTicket.Administration;
+namespace PlayTicket.UserService;
 
 [DependsOn(
     typeof(AbpAutofacModule),
     typeof(AbpTestBaseModule),
     typeof(AbpAuthorizationModule),
-    typeof(AdministrationDomainModule)
+    typeof(ProjectsDomainModule)
     )]
-public class AdministrationTestBaseModule : AbpModule
+public class UserServiceTestBaseModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {

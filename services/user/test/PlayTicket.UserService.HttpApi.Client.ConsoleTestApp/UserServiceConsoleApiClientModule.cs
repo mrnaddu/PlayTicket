@@ -2,14 +2,14 @@
 using Volo.Abp.Http.Client.IdentityModel;
 using Volo.Abp.Modularity;
 
-namespace PlayTicket.Projects;
+namespace PlayTicket.UserService;
 
 [DependsOn(
     typeof(AbpAutofacModule),
-    typeof(ProjectsHttpApiClientModule),
+    typeof(UserServiceHttpApiClientModule),
     typeof(AbpHttpClientIdentityModelModule)
     )]
-public class ProjectsConsoleApiClientModule : AbpModule
+public class UserServiceConsoleApiClientModule : AbpModule
 {
 
 }

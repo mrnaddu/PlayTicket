@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>PlayTicket.Projects</RootNamespace>
+    <RootNamespace>PlayTicket.UserService</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

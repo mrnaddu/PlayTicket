@@ -2,7 +2,7 @@
 using Shouldly;
 using Xunit;
 
-namespace PlayTicket.Administration.Samples;
+namespace PlayTicket.CashVoucherService.Samples;
 
 public class SampleAppService_Tests : CashVoucherServiceApplicationTestBase
 {
