@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
 
-namespace PlayTicket.Administration;
+namespace PlayTicket.CashVoucherService;
 
 public class Program
 {

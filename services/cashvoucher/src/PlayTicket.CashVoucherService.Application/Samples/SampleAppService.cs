@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 
-namespace PlayTicket.Administration.Samples;
+namespace PlayTicket.CashVoucherService.Samples;
 
-public class SampleAppService : AdministrationAppService, ISampleAppService
+public class SampleAppService : CashVoucherServiceAppService, ISampleAppService
 {
     public Task<SampleDto> GetAsync()
     {

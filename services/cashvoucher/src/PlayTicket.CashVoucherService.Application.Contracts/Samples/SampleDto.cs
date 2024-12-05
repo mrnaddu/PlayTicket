@@ -1,4 +1,4 @@
-﻿namespace PlayTicket.Administration.Samples;
+﻿namespace PlayTicket.CashVoucherService.Samples;
 
 public class SampleDto
 {

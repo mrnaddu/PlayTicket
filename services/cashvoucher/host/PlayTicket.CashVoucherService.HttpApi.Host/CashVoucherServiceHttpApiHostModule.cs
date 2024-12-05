@@ -9,28 +9,20 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.OpenApi.Models;
-using StackExchange.Redis;
-using PlayTicket.Administration.EntityFrameworkCore;
+using PlayTicket.CashVoucherService.EntityFrameworkCore;
 using PlayTicket.Hosting.Shared;
-using PlayTicket.IdentityService;
-using PlayTicket.IdentityService.EntityFrameworkCore;
-using PlayTicket.SaaS;
+using StackExchange.Redis;
 using Volo.Abp;
 using Volo.Abp.Caching;
-using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
 
-namespace PlayTicket.Administration;
+namespace PlayTicket.CashVoucherService;
 
 [DependsOn(
     typeof(PlayTicketHostingModule),
-    typeof(AdministrationApplicationModule),
-    typeof(AdministrationEntityFrameworkCoreModule),
-    typeof(AdministrationHttpApiModule),
-    typeof(IdentityServiceApplicationContractsModule),
-    typeof(IdentityServiceEntityFrameworkCoreModule),
-    typeof(AbpIdentityDomainModule),
-    typeof(SaaSApplicationContractsModule)
+    typeof(CashVoucherServiceApplicationModule),
+    typeof(CashVoucherServiceEntityFrameworkCoreModule),
+    typeof(CashVoucherServiceHttpApiModule)
 )]
 public class CashVoucherServiceHttpApiHostModule : AbpModule
 {
@@ -46,7 +38,7 @@ public class CashVoucherServiceHttpApiHostModule : AbpModule
             },
             options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo {Title = "Administration API", Version = "v1"});
+                options.SwaggerDoc("v1", new OpenApiInfo {Title = "CashVoucherService API", Version = "v1"});
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
             });
@@ -62,14 +54,14 @@ public class CashVoucherServiceHttpApiHostModule : AbpModule
 
         Configure<AbpDistributedCacheOptions>(options =>
         {
-            options.KeyPrefix = "Administration:";
+            options.KeyPrefix = "CashVoucherService:";
         });
 
-        var dataProtectionBuilder = context.Services.AddDataProtection().SetApplicationName("Administration");
+        var dataProtectionBuilder = context.Services.AddDataProtection().SetApplicationName("CashVoucherService");
         if (!hostingEnvironment.IsDevelopment())
         {
             var redis = ConnectionMultiplexer.Connect(configuration["Redis:Configuration"]);
-            dataProtectionBuilder.PersistKeysToStackExchangeRedis(redis, "Administration-Protection-Keys");
+            dataProtectionBuilder.PersistKeysToStackExchangeRedis(redis, "CashVoucherService-Protection-Keys");
         }
 
         context.Services.AddCors(options =>

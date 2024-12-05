@@ -1,5 +1,5 @@
-﻿using PlayTicket.Administration;
-using PlayTicket.Administration.EntityFrameworkCore;
+﻿using PlayTicket.CashVoucherService;
+using PlayTicket.CashVoucherService.EntityFrameworkCore;
 using PlayTicket.IdentityService;
 using PlayTicket.IdentityService.EntityFrameworkCore;
 using PlayTicket.Microservice.Shared;

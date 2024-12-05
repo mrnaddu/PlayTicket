@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using PlayTicket.Administration.EntityFrameworkCore;
+using PlayTicket.CashVoucherService.EntityFrameworkCore;
 using PlayTicket.IdentityService.EntityFrameworkCore;
 using PlayTicket.SaaS.EntityFrameworkCore;
 using Volo.Abp.Data;

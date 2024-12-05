@@ -1,4 +1,4 @@
-﻿using PlayTicket.Administration.EntityFrameworkCore;
+﻿using PlayTicket.CashVoucherService.EntityFrameworkCore;
 using PlayTicket.Hosting.Shared;
 using Volo.Abp.Modularity;
 

@@ -42,8 +42,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\services\administration\src\PlayTicket.Administration.Application.Contracts\PlayTicket.Administration.Application.Contracts.csproj" />
-        <ProjectReference Include="..\..\services\administration\src\PlayTicket.Administration.EntityFrameworkCore\PlayTicket.Administration.EntityFrameworkCore.csproj" />
+        <ProjectReference Include="..\..\services\administration\src\PlayTicket.CashVoucherService.Application.Contracts\PlayTicket.CashVoucherService.Application.Contracts.csproj" />
+        <ProjectReference Include="..\..\services\administration\src\PlayTicket.CashVoucherService.EntityFrameworkCore\PlayTicket.CashVoucherService.EntityFrameworkCore.csproj" />
         <ProjectReference Include="..\..\services\identity\src\PlayTicket.IdentityService.Application.Contracts\PlayTicket.IdentityService.Application.Contracts.csproj" />
         <ProjectReference Include="..\..\services\identity\src\PlayTicket.IdentityService.EntityFrameworkCore\PlayTicket.IdentityService.EntityFrameworkCore.csproj" />
         <ProjectReference Include="..\..\services\saas\src\PlayTicket.SaaS.Application.Contracts\PlayTicket.SaaS.Application.Contracts.csproj" />

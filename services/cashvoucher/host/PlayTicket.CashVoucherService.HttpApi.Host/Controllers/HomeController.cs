@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc;
 
-namespace PlayTicket.Administration.Controllers;
+namespace PlayTicket.CashVoucherService.Controllers;
 
 public class HomeController : AbpController
 {

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Volo.Abp.Application.Services;
 
-namespace PlayTicket.Administration.Samples;
+namespace PlayTicket.CashVoucherService.Samples;
 
 public interface ISampleAppService : IApplicationService
 {

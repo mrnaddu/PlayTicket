@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "PlayTicket.Administration.Host": {
+    "PlayTicket.CashVoucherService.Host": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

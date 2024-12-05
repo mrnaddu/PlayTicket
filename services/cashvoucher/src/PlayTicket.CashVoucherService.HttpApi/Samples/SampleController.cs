@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Volo.Abp;
 
-namespace PlayTicket.Administration.Samples;
+namespace PlayTicket.CashVoucherService.Samples;
 
-[Area(AdministrationRemoteServiceConsts.ModuleName)]
-[RemoteService(Name = AdministrationRemoteServiceConsts.RemoteServiceName)]
-[Route("api/Administration/sample")]
-public class SampleController : AdministrationController, ISampleAppService
+[Area(CashVoucherServiceRemoteServiceConsts.ModuleName)]
+[RemoteService(Name = CashVoucherServiceRemoteServiceConsts.RemoteServiceName)]
+[Route("api/CashVoucherService/sample")]
+public class SampleController : CashVoucherServiceController, ISampleAppService
 {
     private readonly ISampleAppService _sampleAppService;
 

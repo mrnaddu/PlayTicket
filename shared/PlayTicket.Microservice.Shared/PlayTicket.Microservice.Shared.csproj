@@ -7,7 +7,7 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
     <ItemGroup>
-        <ProjectReference Include="..\..\services\administration\src\PlayTicket.Administration.EntityFrameworkCore\PlayTicket.Administration.EntityFrameworkCore.csproj" />
+        <ProjectReference Include="..\..\services\administration\src\PlayTicket.CashVoucherService.EntityFrameworkCore\PlayTicket.CashVoucherService.EntityFrameworkCore.csproj" />
         <ProjectReference Include="..\PlayTicket.Hosting.Shared\PlayTicket.Hosting.Shared.csproj" />
     </ItemGroup>
 </Project>

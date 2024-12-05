@@ -46,7 +46,7 @@ public class PlayTicketHostingModule : AbpModule
                 database.IsUsedByTenants = false;
             });
 
-            options.Databases.Configure("Administration", database =>
+            options.Databases.Configure("CashVoucherService", database =>
             {
                 database.MappedConnections.Add("AbpAuditLogging");
                 database.MappedConnections.Add("AbpPermissionManagement");
