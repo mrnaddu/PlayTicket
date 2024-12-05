@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Volo.Abp;
 
-namespace PlayTicket.Projects.Samples;
+namespace PlayTicket.UserService.Samples;
 
-[Area(ProjectsRemoteServiceConsts.ModuleName)]
-[RemoteService(Name = ProjectsRemoteServiceConsts.RemoteServiceName)]
-[Route("api/Projects/sample")]
-public class SampleController : ProjectsController, ISampleAppService
+[Area(UserServiceRemoteServiceConsts.ModuleName)]
+[RemoteService(Name = UserServiceRemoteServiceConsts.RemoteServiceName)]
+[Route("api/UserService/sample")]
+public class SampleController : UserServiceController, ISampleAppService
 {
     private readonly ISampleAppService _sampleAppService;
 

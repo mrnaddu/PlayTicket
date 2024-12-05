@@ -1,4 +1,4 @@
-﻿namespace PlayTicket.Projects.Samples;
+﻿namespace PlayTicket.UserService.Samples;
 
 public class SampleDto
 {

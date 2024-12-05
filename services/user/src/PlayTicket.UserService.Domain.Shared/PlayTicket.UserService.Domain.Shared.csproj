@@ -4,7 +4,7 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <RootNamespace>PlayTicket.Projects</RootNamespace>
+        <RootNamespace>PlayTicket.UserService</RootNamespace>
         <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
     </PropertyGroup>
 
@@ -17,8 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource Include="Localization\Projects\*.json" />
-        <Content Remove="Localization\Projects\*.json" />
+        <EmbeddedResource Include="Localization\UserService\*.json" />
     </ItemGroup>
 
 </Project>

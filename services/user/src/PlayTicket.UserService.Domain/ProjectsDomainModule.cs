@@ -1,11 +1,11 @@
 ﻿using Volo.Abp.Domain;
 using Volo.Abp.Modularity;
 
-namespace PlayTicket.Projects;
+namespace PlayTicket.UserService;
 
 [DependsOn(
     typeof(AbpDddDomainModule),
-    typeof(ProjectsDomainSharedModule)
+    typeof(UserServiceDomainSharedModule)
 )]
 public class ProjectsDomainModule : AbpModule
 {
