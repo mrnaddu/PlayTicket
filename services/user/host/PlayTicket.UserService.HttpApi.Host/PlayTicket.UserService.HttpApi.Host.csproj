@@ -19,7 +19,7 @@
         <ProjectReference Include="..\..\..\..\shared\PlayTicket.Hosting.Shared\PlayTicket.Hosting.Shared.csproj" />
         <ProjectReference Include="..\..\src\PlayTicket.UserService.HttpApi\PlayTicket.UserService.HttpApi.csproj" />
         <ProjectReference Include="..\..\src\PlayTicket.UserService.Application\PlayTicket.UserService.Application.csproj" />
-        <ProjectReference Include="..\..\src\PlayTicket.UserService.EntityFrameworkCore\PlayTicket.UserService.EntityFrameworkCore.csproj" />
+        <ProjectReference Include="..\..\src\PlayTicket.UserService.Infrastructure\PlayTicket.UserService.Infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>

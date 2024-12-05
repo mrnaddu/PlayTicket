@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
-    <ProjectReference Include="..\PlayTicket.Projects.EntityFrameworkCore.Tests\PlayTicket.Projects.EntityFrameworkCore.Tests.csproj" />
+    <ProjectReference Include="..\PlayTicket.UserService.Infrastructure.Tests\PlayTicket.UserService.Infrastructure.Tests.csproj" />
   </ItemGroup>
 
 </Project>

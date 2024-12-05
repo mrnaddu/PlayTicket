@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\PlayTicket.Projects.Application\PlayTicket.Projects.Application.csproj" />
-    <ProjectReference Include="..\PlayTicket.Projects.Domain.Tests\PlayTicket.Projects.Domain.Tests.csproj" />
+    <ProjectReference Include="..\..\src\PlayTicket.UserService.Application\PlayTicket.UserService.Application.csproj" />
+    <ProjectReference Include="..\PlayTicket.UserService.Domain.Tests\PlayTicket.UserService.Domain.Tests.csproj" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
   </ItemGroup>
 
