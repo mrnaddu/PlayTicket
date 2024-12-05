@@ -32,7 +32,7 @@ namespace PlayTicket.Administration;
     typeof(AbpIdentityDomainModule),
     typeof(SaaSApplicationContractsModule)
 )]
-public class AdministrationHttpApiHostModule : AbpModule
+public class CashVoucherServiceHttpApiHostModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {

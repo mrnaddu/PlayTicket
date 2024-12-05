@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.AppHost", "PlayT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.ServiceDefaults", "shared\PlayTicket.ServiceDefaults\PlayTicket.ServiceDefaults.csproj", "{8506D754-AA5B-40FD-9788-D9BB513967B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.CashVoucherService.HttpApi.Host", "services\cashvoucher\host\PlayTicket.CashVoucherService.HttpApi.Host\PlayTicket.CashVoucherService.HttpApi.Host.csproj", "{00E44722-A96A-4579-86ED-97664EE4CA8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{8506D754-AA5B-40FD-9788-D9BB513967B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8506D754-AA5B-40FD-9788-D9BB513967B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8506D754-AA5B-40FD-9788-D9BB513967B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00E44722-A96A-4579-86ED-97664EE4CA8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00E44722-A96A-4579-86ED-97664EE4CA8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00E44722-A96A-4579-86ED-97664EE4CA8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00E44722-A96A-4579-86ED-97664EE4CA8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +96,7 @@ Global
 		{56A6B29B-646F-4104-B389-0709DE9FC041} = {79065DE8-D7FB-40A5-980B-A0841A208B38}
 		{EB163A6D-3FE6-4C7D-9A7E-7F7044F7130F} = {79065DE8-D7FB-40A5-980B-A0841A208B38}
 		{8506D754-AA5B-40FD-9788-D9BB513967B1} = {140ED621-3D93-4523-8B62-BE6850E04698}
+		{00E44722-A96A-4579-86ED-97664EE4CA8C} = {ED0A7918-04FA-4040-B641-4CA249074083}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ECFA44F4-824C-4405-82F5-F62F2DCBCD5E}

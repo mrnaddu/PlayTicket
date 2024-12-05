@@ -28,7 +28,7 @@ public class Program
             builder.Host.AddAppSettingsSecretsJson()
                 .UseAutofac()
                 .UseSerilog();
-            await builder.AddApplicationAsync<AdministrationHttpApiHostModule>();
+            await builder.AddApplicationAsync<CashVoucherServiceHttpApiHostModule>();
             var app = builder.Build();
             await app.InitializeApplicationAsync();
             await app.RunAsync();
