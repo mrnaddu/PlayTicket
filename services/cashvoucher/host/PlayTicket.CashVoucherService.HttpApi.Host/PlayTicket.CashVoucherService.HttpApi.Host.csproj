@@ -13,12 +13,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\..\..\shared\PlayTicket.Hosting.Shared\PlayTicket.Hosting.Shared.csproj" />
-        <ProjectReference Include="..\..\..\identity\src\PlayTicket.IdentityService.Application.Contracts\PlayTicket.IdentityService.Application.Contracts.csproj" />
-        <ProjectReference Include="..\..\..\identity\src\PlayTicket.IdentityService.EntityFrameworkCore\PlayTicket.IdentityService.EntityFrameworkCore.csproj" />
-        <ProjectReference Include="..\..\..\saas\src\PlayTicket.SaaS.Application.Contracts\PlayTicket.SaaS.Application.Contracts.csproj" />
-        <ProjectReference Include="..\..\src\PlayTicket.Administration.HttpApi\PlayTicket.Administration.HttpApi.csproj" />
-        <ProjectReference Include="..\..\src\PlayTicket.Administration.Application\PlayTicket.Administration.Application.csproj" />
-        <ProjectReference Include="..\..\src\PlayTicket.Administration.EntityFrameworkCore\PlayTicket.Administration.EntityFrameworkCore.csproj" />
     </ItemGroup>
 
     <ItemGroup>
