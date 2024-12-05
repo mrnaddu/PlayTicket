@@ -5,10 +5,8 @@ using Volo.Abp.Caching.StackExchangeRedis;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.PostgreSql;
-using Volo.Abp.EventBus.RabbitMq;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
-using Volo.Abp.MultiTenancy;
 using Volo.Abp.Swashbuckle;
 
 namespace PlayTicket.Hosting.Shared;
@@ -20,7 +18,6 @@ namespace PlayTicket.Hosting.Shared;
     typeof(AbpAspNetCoreSerilogModule),
     typeof(AbpAspNetCoreMultiTenancyModule),
     typeof(AbpSwashbuckleModule),
-    typeof(AbpEventBusRabbitMqModule),
     typeof(AbpEntityFrameworkCoreModule),
     typeof(AbpEntityFrameworkCorePostgreSqlModule)
 )]
@@ -32,35 +29,7 @@ public class PlayTicketHostingModule : AbpModule
         {
             options.UseNpgsql();
         });
-
-        Configure<AbpMultiTenancyOptions>(options =>
-        {
-            options.IsEnabled = true;
-        });
-
-        Configure<AbpDbConnectionOptions>(options =>
-        {
-            options.Databases.Configure("SaaS", database =>
-            {
-                database.MappedConnections.Add("AbpTenantManagement");
-                database.IsUsedByTenants = false;
-            });
-
-            options.Databases.Configure("CashVoucherService", database =>
-            {
-                database.MappedConnections.Add("AbpAuditLogging");
-                database.MappedConnections.Add("AbpPermissionManagement");
-                database.MappedConnections.Add("AbpSettingManagement");
-                database.MappedConnections.Add("AbpFeatureManagement");
-            });
-
-            options.Databases.Configure("IdentityService", database =>
-            {
-                database.MappedConnections.Add("AbpIdentity");
-                database.MappedConnections.Add("AbpOpenIddict");
-            });
-        });
-
+       
         Configure<AbpLocalizationOptions>(options =>
         {
             options.Languages.Add(new LanguageInfo("ar", "ar", "العربية"));

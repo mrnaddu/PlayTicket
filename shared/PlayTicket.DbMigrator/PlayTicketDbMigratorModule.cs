@@ -1,10 +1,7 @@
 ﻿using PlayTicket.CashVoucherService;
 using PlayTicket.CashVoucherService.EntityFrameworkCore;
-using PlayTicket.IdentityService;
-using PlayTicket.IdentityService.EntityFrameworkCore;
-using PlayTicket.Microservice.Shared;
-using PlayTicket.SaaS;
-using PlayTicket.SaaS.EntityFrameworkCore;
+using PlayTicket.UserService;
+using PlayTicket.UserService.EntityFrameworkCore;
 using Volo.Abp.Autofac;
 using Volo.Abp.Modularity;
 
@@ -12,12 +9,10 @@ namespace PlayTicket.DbMigrator;
 
 [DependsOn(
     typeof(AbpAutofacModule),
-    typeof(AdministrationEntityFrameworkCoreModule),
-    typeof(AdministrationApplicationContractsModule),
-    typeof(IdentityServiceEntityFrameworkCoreModule),
-    typeof(IdentityServiceApplicationContractsModule),
-    typeof(SaaSEntityFrameworkCoreModule),
-    typeof(SaaSApplicationContractsModule)
+    typeof(CashVoucherServiceEntityFrameworkCoreModule),
+    typeof(CashVoucherServiceApplicationContractsModule),
+    typeof(UserServiceEntityFrameworkCoreModule),
+    typeof(UserServiceApplicationContractsModule)
 )]
 public class PlayTicketDbMigratorModule : AbpModule
 {

@@ -34,7 +34,7 @@ public class CashVoucherServiceHttpApiHostModule : AbpModule
         context.Services.AddAbpSwaggerGenWithOAuth(
             configuration["AuthServer:Authority"],
             new Dictionary<string, string> {
-                {"AdministrationService", "AdministrationService API"}
+                {"CashVoucherService", "CashVoucherService API"}
             },
             options =>
             {
@@ -49,7 +49,7 @@ public class CashVoucherServiceHttpApiHostModule : AbpModule
             {
                 options.Authority = configuration["AuthServer:Authority"];
                 options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
-                options.Audience = "AdministrationService";
+                options.Audience = "CashVoucherService";
             });
 
         Configure<AbpDistributedCacheOptions>(options =>

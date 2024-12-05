@@ -9,8 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{140ED6
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.DbMigrator", "shared\PlayTicket.DbMigrator\PlayTicket.DbMigrator.csproj", "{D6921133-0AFF-4473-A469-7F2226AB5C1F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.Microservice.Shared", "shared\PlayTicket.Microservice.Shared\PlayTicket.Microservice.Shared.csproj", "{142C264D-AA69-4AF5-B62B-C596282C2645}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.Hosting.Shared", "shared\PlayTicket.Hosting.Shared\PlayTicket.Hosting.Shared.csproj", "{14078787-9BEA-40B7-B9A6-C5FFE1DA55A9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8D0555B6-9418-4373-AAD5-74BC25768D9D}"
@@ -59,6 +57,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.UserService.Doma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.UserService.Domain", "services\user\src\PlayTicket.UserService.Domain\PlayTicket.UserService.Domain.csproj", "{ED06C3CC-85AB-4ECE-A939-FDEDB79F840A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lambdas", "lambdas", "{50439E9A-ECB6-47ED-8555-498984221F92}"
+	ProjectSection(SolutionItems) = preProject
+		TextFile1.txt = TextFile1.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,10 +72,6 @@ Global
 		{D6921133-0AFF-4473-A469-7F2226AB5C1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6921133-0AFF-4473-A469-7F2226AB5C1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6921133-0AFF-4473-A469-7F2226AB5C1F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{142C264D-AA69-4AF5-B62B-C596282C2645}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{142C264D-AA69-4AF5-B62B-C596282C2645}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{142C264D-AA69-4AF5-B62B-C596282C2645}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{142C264D-AA69-4AF5-B62B-C596282C2645}.Release|Any CPU.Build.0 = Release|Any CPU
 		{14078787-9BEA-40B7-B9A6-C5FFE1DA55A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{14078787-9BEA-40B7-B9A6-C5FFE1DA55A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14078787-9BEA-40B7-B9A6-C5FFE1DA55A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -155,7 +154,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D6921133-0AFF-4473-A469-7F2226AB5C1F} = {140ED621-3D93-4523-8B62-BE6850E04698}
-		{142C264D-AA69-4AF5-B62B-C596282C2645} = {140ED621-3D93-4523-8B62-BE6850E04698}
 		{14078787-9BEA-40B7-B9A6-C5FFE1DA55A9} = {140ED621-3D93-4523-8B62-BE6850E04698}
 		{8506D754-AA5B-40FD-9788-D9BB513967B1} = {140ED621-3D93-4523-8B62-BE6850E04698}
 		{00E44722-A96A-4579-86ED-97664EE4CA8C} = {471DAF0F-993A-4DD7-BDA0-0695AAE07C42}

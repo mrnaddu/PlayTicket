@@ -1,4 +1,4 @@
-namespace PlayTicket.DbMigrator;
+namespace PlayTicket.DbMigrator.Model;
 
 public class ServiceClient
 {
