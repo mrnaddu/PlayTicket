@@ -37,6 +37,40 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.ServiceDefaults"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.CashVoucherService.HttpApi.Host", "services\cashvoucher\host\PlayTicket.CashVoucherService.HttpApi.Host\PlayTicket.CashVoucherService.HttpApi.Host.csproj", "{00E44722-A96A-4579-86ED-97664EE4CA8C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.CashVoucherService.Application", "services\cashvoucher\src\PlayTicket.CashVoucherService.Application\PlayTicket.CashVoucherService.Application.csproj", "{B87A3A54-5147-45DD-8B06-3B92D5D87EE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.CashVoucherService.Application.Contracts", "services\cashvoucher\src\PlayTicket.CashVoucherService.Application.Contracts\PlayTicket.CashVoucherService.Application.Contracts.csproj", "{DDD47086-FB4C-4752-83D5-D332D12C9727}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.CashVoucherService.Domain", "services\cashvoucher\src\PlayTicket.CashVoucherService.Domain\PlayTicket.CashVoucherService.Domain.csproj", "{A0C95DB2-FDEF-4DFF-A88B-1899F8EF6B91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.CashVoucherService.Domain.Shared", "services\cashvoucher\src\PlayTicket.CashVoucherService.Domain.Shared\PlayTicket.CashVoucherService.Domain.Shared.csproj", "{9BCC15B8-9475-4065-B902-859482ECCD9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.CashVoucherService.EntityFrameworkCore", "services\cashvoucher\src\PlayTicket.CashVoucherService.EntityFrameworkCore\PlayTicket.CashVoucherService.EntityFrameworkCore.csproj", "{68781382-C0C0-416F-992D-DD38D9812DDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.CashVoucherService.HttpApi", "services\cashvoucher\src\PlayTicket.CashVoucherService.HttpApi\PlayTicket.CashVoucherService.HttpApi.csproj", "{89E92AC5-5FEA-4060-8938-69D24F777FEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.CashVoucherService.HttpApi.Client", "services\cashvoucher\src\PlayTicket.CashVoucherService.HttpApi.Client\PlayTicket.CashVoucherService.HttpApi.Client.csproj", "{60C2C3AA-4F3E-433A-8797-BBA92F08DAEE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cashvoucher", "cashvoucher", "{471DAF0F-993A-4DD7-BDA0-0695AAE07C42}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "user", "user", "{2E1C23F3-C9FC-4A61-8977-B0E362612130}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.UserService.HttpApi.Host", "services\user\host\PlayTicket.UserService.HttpApi.Host\PlayTicket.UserService.HttpApi.Host.csproj", "{2D98107A-30B6-4982-BFAF-DC8A99CF44D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.UserService.Application", "services\user\src\PlayTicket.UserService.Application\PlayTicket.UserService.Application.csproj", "{25DB22A9-BFDE-4CF0-9E23-8A9F0342889D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.UserService.Application.Contracts", "services\user\src\PlayTicket.UserService.Application.Contracts\PlayTicket.UserService.Application.Contracts.csproj", "{F9B90C4C-88F0-45C9-829C-B21D143853DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.UserService.HttpApi.Client", "services\user\src\PlayTicket.UserService.HttpApi.Client\PlayTicket.UserService.HttpApi.Client.csproj", "{354A8510-AC06-4FC9-8BBF-48067C2B3EBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.UserService.HttpApi", "services\user\src\PlayTicket.UserService.HttpApi\PlayTicket.UserService.HttpApi.csproj", "{8AF3E380-4FF5-4B36-B2AE-5D133343AD6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.UserService.EntityFrameworkCore", "services\user\src\PlayTicket.UserService.EntityFrameworkCore\PlayTicket.UserService.EntityFrameworkCore.csproj", "{7C977D3B-61E2-494A-AEC4-6B33E3AE4560}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.UserService.Domain.Shared", "services\user\src\PlayTicket.UserService.Domain.Shared\PlayTicket.UserService.Domain.Shared.csproj", "{513C521D-9675-4486-B862-202E4BF5F120}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.UserService.Domain", "services\user\src\PlayTicket.UserService.Domain\PlayTicket.UserService.Domain.csproj", "{ED06C3CC-85AB-4ECE-A939-FDEDB79F840A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +117,66 @@ Global
 		{00E44722-A96A-4579-86ED-97664EE4CA8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00E44722-A96A-4579-86ED-97664EE4CA8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00E44722-A96A-4579-86ED-97664EE4CA8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B87A3A54-5147-45DD-8B06-3B92D5D87EE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B87A3A54-5147-45DD-8B06-3B92D5D87EE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B87A3A54-5147-45DD-8B06-3B92D5D87EE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B87A3A54-5147-45DD-8B06-3B92D5D87EE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDD47086-FB4C-4752-83D5-D332D12C9727}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDD47086-FB4C-4752-83D5-D332D12C9727}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDD47086-FB4C-4752-83D5-D332D12C9727}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDD47086-FB4C-4752-83D5-D332D12C9727}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0C95DB2-FDEF-4DFF-A88B-1899F8EF6B91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0C95DB2-FDEF-4DFF-A88B-1899F8EF6B91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0C95DB2-FDEF-4DFF-A88B-1899F8EF6B91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0C95DB2-FDEF-4DFF-A88B-1899F8EF6B91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BCC15B8-9475-4065-B902-859482ECCD9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BCC15B8-9475-4065-B902-859482ECCD9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BCC15B8-9475-4065-B902-859482ECCD9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BCC15B8-9475-4065-B902-859482ECCD9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68781382-C0C0-416F-992D-DD38D9812DDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68781382-C0C0-416F-992D-DD38D9812DDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68781382-C0C0-416F-992D-DD38D9812DDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68781382-C0C0-416F-992D-DD38D9812DDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89E92AC5-5FEA-4060-8938-69D24F777FEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89E92AC5-5FEA-4060-8938-69D24F777FEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89E92AC5-5FEA-4060-8938-69D24F777FEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89E92AC5-5FEA-4060-8938-69D24F777FEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60C2C3AA-4F3E-433A-8797-BBA92F08DAEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60C2C3AA-4F3E-433A-8797-BBA92F08DAEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60C2C3AA-4F3E-433A-8797-BBA92F08DAEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60C2C3AA-4F3E-433A-8797-BBA92F08DAEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D98107A-30B6-4982-BFAF-DC8A99CF44D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D98107A-30B6-4982-BFAF-DC8A99CF44D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D98107A-30B6-4982-BFAF-DC8A99CF44D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D98107A-30B6-4982-BFAF-DC8A99CF44D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25DB22A9-BFDE-4CF0-9E23-8A9F0342889D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25DB22A9-BFDE-4CF0-9E23-8A9F0342889D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25DB22A9-BFDE-4CF0-9E23-8A9F0342889D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25DB22A9-BFDE-4CF0-9E23-8A9F0342889D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9B90C4C-88F0-45C9-829C-B21D143853DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9B90C4C-88F0-45C9-829C-B21D143853DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9B90C4C-88F0-45C9-829C-B21D143853DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9B90C4C-88F0-45C9-829C-B21D143853DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{354A8510-AC06-4FC9-8BBF-48067C2B3EBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{354A8510-AC06-4FC9-8BBF-48067C2B3EBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{354A8510-AC06-4FC9-8BBF-48067C2B3EBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{354A8510-AC06-4FC9-8BBF-48067C2B3EBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AF3E380-4FF5-4B36-B2AE-5D133343AD6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AF3E380-4FF5-4B36-B2AE-5D133343AD6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AF3E380-4FF5-4B36-B2AE-5D133343AD6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AF3E380-4FF5-4B36-B2AE-5D133343AD6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C977D3B-61E2-494A-AEC4-6B33E3AE4560}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C977D3B-61E2-494A-AEC4-6B33E3AE4560}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C977D3B-61E2-494A-AEC4-6B33E3AE4560}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C977D3B-61E2-494A-AEC4-6B33E3AE4560}.Release|Any CPU.Build.0 = Release|Any CPU
+		{513C521D-9675-4486-B862-202E4BF5F120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{513C521D-9675-4486-B862-202E4BF5F120}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{513C521D-9675-4486-B862-202E4BF5F120}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{513C521D-9675-4486-B862-202E4BF5F120}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED06C3CC-85AB-4ECE-A939-FDEDB79F840A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED06C3CC-85AB-4ECE-A939-FDEDB79F840A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED06C3CC-85AB-4ECE-A939-FDEDB79F840A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED06C3CC-85AB-4ECE-A939-FDEDB79F840A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,7 +190,24 @@ Global
 		{56A6B29B-646F-4104-B389-0709DE9FC041} = {79065DE8-D7FB-40A5-980B-A0841A208B38}
 		{EB163A6D-3FE6-4C7D-9A7E-7F7044F7130F} = {79065DE8-D7FB-40A5-980B-A0841A208B38}
 		{8506D754-AA5B-40FD-9788-D9BB513967B1} = {140ED621-3D93-4523-8B62-BE6850E04698}
-		{00E44722-A96A-4579-86ED-97664EE4CA8C} = {ED0A7918-04FA-4040-B641-4CA249074083}
+		{00E44722-A96A-4579-86ED-97664EE4CA8C} = {471DAF0F-993A-4DD7-BDA0-0695AAE07C42}
+		{B87A3A54-5147-45DD-8B06-3B92D5D87EE3} = {471DAF0F-993A-4DD7-BDA0-0695AAE07C42}
+		{DDD47086-FB4C-4752-83D5-D332D12C9727} = {471DAF0F-993A-4DD7-BDA0-0695AAE07C42}
+		{A0C95DB2-FDEF-4DFF-A88B-1899F8EF6B91} = {471DAF0F-993A-4DD7-BDA0-0695AAE07C42}
+		{9BCC15B8-9475-4065-B902-859482ECCD9D} = {471DAF0F-993A-4DD7-BDA0-0695AAE07C42}
+		{68781382-C0C0-416F-992D-DD38D9812DDB} = {471DAF0F-993A-4DD7-BDA0-0695AAE07C42}
+		{89E92AC5-5FEA-4060-8938-69D24F777FEA} = {471DAF0F-993A-4DD7-BDA0-0695AAE07C42}
+		{60C2C3AA-4F3E-433A-8797-BBA92F08DAEE} = {471DAF0F-993A-4DD7-BDA0-0695AAE07C42}
+		{471DAF0F-993A-4DD7-BDA0-0695AAE07C42} = {ED0A7918-04FA-4040-B641-4CA249074083}
+		{2E1C23F3-C9FC-4A61-8977-B0E362612130} = {ED0A7918-04FA-4040-B641-4CA249074083}
+		{2D98107A-30B6-4982-BFAF-DC8A99CF44D3} = {2E1C23F3-C9FC-4A61-8977-B0E362612130}
+		{25DB22A9-BFDE-4CF0-9E23-8A9F0342889D} = {2E1C23F3-C9FC-4A61-8977-B0E362612130}
+		{F9B90C4C-88F0-45C9-829C-B21D143853DD} = {2E1C23F3-C9FC-4A61-8977-B0E362612130}
+		{354A8510-AC06-4FC9-8BBF-48067C2B3EBD} = {2E1C23F3-C9FC-4A61-8977-B0E362612130}
+		{8AF3E380-4FF5-4B36-B2AE-5D133343AD6B} = {2E1C23F3-C9FC-4A61-8977-B0E362612130}
+		{7C977D3B-61E2-494A-AEC4-6B33E3AE4560} = {2E1C23F3-C9FC-4A61-8977-B0E362612130}
+		{513C521D-9675-4486-B862-202E4BF5F120} = {2E1C23F3-C9FC-4A61-8977-B0E362612130}
+		{ED06C3CC-85AB-4ECE-A939-FDEDB79F840A} = {2E1C23F3-C9FC-4A61-8977-B0E362612130}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ECFA44F4-824C-4405-82F5-F62F2DCBCD5E}
