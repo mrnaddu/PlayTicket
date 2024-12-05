@@ -14,14 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\services\administration\host\PlayTicket.Administration.HttpApi.Host\PlayTicket.Administration.HttpApi.Host.csproj" />
-    <ProjectReference Include="..\services\identity\host\PlayTicket.IdentityService.HttpApi.Host\PlayTicket.IdentityService.HttpApi.Host.csproj" />
-    <ProjectReference Include="..\services\projects\host\PlayTicket.Projects.HttpApi.Host\PlayTicket.Projects.HttpApi.Host.csproj" />
-    <ProjectReference Include="..\services\saas\host\PlayTicket.SaaS.HttpApi.Host\PlayTicket.SaaS.HttpApi.Host.csproj" />
-    <ProjectReference Include="..\apps\PlayTicket.AuthServer\PlayTicket.AuthServer.csproj" />
-    <ProjectReference Include="..\apps\PlayTicket.Blazor\PlayTicket.Blazor.csproj" />
-    <ProjectReference Include="..\apps\PlayTicket.Blazor.Server\PlayTicket.Blazor.Server.csproj" />
-    <ProjectReference Include="..\gateway\PlayTicket.Gateway\PlayTicket.Gateway.csproj" />
+    <ProjectReference Include="..\services\cashvoucher\host\PlayTicket.CashVoucherService.HttpApi.Host\PlayTicket.CashVoucherService.HttpApi.Host.csproj" />
+    <ProjectReference Include="..\services\user\host\PlayTicket.UserService.HttpApi.Host\PlayTicket.UserService.HttpApi.Host.csproj" />
   </ItemGroup>
 
 </Project>
