@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Logging;
@@ -31,6 +33,15 @@ public class UserServiceHttpApiHostModule : AbpModule
         var hostingEnvironment = context.Services.GetHostingEnvironment();
         var configuration = context.Services.GetConfiguration();
 
+        ConfigureSwagger(context, configuration);
+        ConfigureAuthentication(context, configuration);
+        ConfigureDistributedCache();
+        ConfigureDataProtection(context, hostingEnvironment, configuration);
+        ConfigureCors(context, configuration);
+    }
+
+    private static void ConfigureSwagger(ServiceConfigurationContext context, IConfiguration configuration)
+    {
         context.Services.AddAbpSwaggerGenWithOAuth(
             configuration["AuthServer:Authority"],
             new Dictionary<string, string> {
@@ -42,8 +53,10 @@ public class UserServiceHttpApiHostModule : AbpModule
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
             });
+    }
 
-
+    private static void ConfigureAuthentication(ServiceConfigurationContext context, IConfiguration configuration)
+    {
         context.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
@@ -51,19 +64,28 @@ public class UserServiceHttpApiHostModule : AbpModule
                 options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
                 options.Audience = "UserService";
             });
+    }
 
+    private void ConfigureDistributedCache()
+    {
         Configure<AbpDistributedCacheOptions>(options =>
         {
             options.KeyPrefix = "UserService:";
         });
+    }
 
+    private static void ConfigureDataProtection(ServiceConfigurationContext context, IWebHostEnvironment hostingEnvironment, IConfiguration configuration)
+    {
         var dataProtectionBuilder = context.Services.AddDataProtection().SetApplicationName("UserService");
         if (!hostingEnvironment.IsDevelopment())
         {
             var redis = ConnectionMultiplexer.Connect(configuration["Redis:Configuration"]);
             dataProtectionBuilder.PersistKeysToStackExchangeRedis(redis, "UserService-Protection-Keys");
         }
+    }
 
+    private static void ConfigureCors(ServiceConfigurationContext context, IConfiguration configuration)
+    {
         context.Services.AddCors(options =>
         {
             options.AddDefaultPolicy(builder =>
@@ -105,8 +127,17 @@ public class UserServiceHttpApiHostModule : AbpModule
         app.UseRouting();
         app.UseCors();
         app.UseAuthentication();
+        app.UseMultiTenancy();
         app.UseAbpRequestLocalization();
         app.UseAuthorization();
+        ConfigureSwaggerUI(app, context);
+        app.UseAuditing();
+        app.UseAbpSerilogEnrichers();
+        app.UseConfiguredEndpoints();
+    }
+
+    private static void ConfigureSwaggerUI(IApplicationBuilder app, ApplicationInitializationContext context)
+    {
         app.UseSwagger();
         app.UseAbpSwaggerUI(options =>
         {
@@ -115,8 +146,5 @@ public class UserServiceHttpApiHostModule : AbpModule
             options.OAuthClientId(configuration["AuthServer:SwaggerClientId"]);
             options.OAuthClientSecret(configuration["AuthServer:SwaggerClientSecret"]);
         });
-        app.UseAuditing();
-        app.UseAbpSerilogEnrichers();
-        app.UseConfiguredEndpoints();
     }
 }

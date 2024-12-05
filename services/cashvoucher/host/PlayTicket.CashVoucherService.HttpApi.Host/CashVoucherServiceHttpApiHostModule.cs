@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Logging;
@@ -31,6 +33,15 @@ public class CashVoucherServiceHttpApiHostModule : AbpModule
         var hostingEnvironment = context.Services.GetHostingEnvironment();
         var configuration = context.Services.GetConfiguration();
 
+        ConfigureSwagger(context, configuration);
+        ConfigureAuthentication(context, configuration);
+        ConfigureDistributedCache();
+        ConfigureDataProtection(context, hostingEnvironment, configuration);
+        ConfigureCors(context, configuration);
+    }
+
+    private static void ConfigureSwagger(ServiceConfigurationContext context, IConfiguration configuration)
+    {
         context.Services.AddAbpSwaggerGenWithOAuth(
             configuration["AuthServer:Authority"],
             new Dictionary<string, string> {
@@ -38,12 +49,14 @@ public class CashVoucherServiceHttpApiHostModule : AbpModule
             },
             options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo {Title = "CashVoucherService API", Version = "v1"});
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "CashVoucherService API", Version = "v1" });
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
             });
+    }
 
-
+    private static void ConfigureAuthentication(ServiceConfigurationContext context, IConfiguration configuration)
+    {
         context.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
@@ -51,19 +64,28 @@ public class CashVoucherServiceHttpApiHostModule : AbpModule
                 options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
                 options.Audience = "CashVoucherService";
             });
+    }
 
+    private void ConfigureDistributedCache()
+    {
         Configure<AbpDistributedCacheOptions>(options =>
         {
             options.KeyPrefix = "CashVoucherService:";
         });
+    }
 
+    private static void ConfigureDataProtection(ServiceConfigurationContext context, IWebHostEnvironment hostingEnvironment, IConfiguration configuration)
+    {
         var dataProtectionBuilder = context.Services.AddDataProtection().SetApplicationName("CashVoucherService");
         if (!hostingEnvironment.IsDevelopment())
         {
             var redis = ConnectionMultiplexer.Connect(configuration["Redis:Configuration"]);
             dataProtectionBuilder.PersistKeysToStackExchangeRedis(redis, "CashVoucherService-Protection-Keys");
         }
+    }
 
+    private static void ConfigureCors(ServiceConfigurationContext context, IConfiguration configuration)
+    {
         context.Services.AddCors(options =>
         {
             options.AddDefaultPolicy(builder =>
@@ -105,10 +127,16 @@ public class CashVoucherServiceHttpApiHostModule : AbpModule
         app.UseRouting();
         app.UseCors();
         app.UseAuthentication();
-        app.UseMultiTenancy();
-
         app.UseAbpRequestLocalization();
         app.UseAuthorization();
+        ConfigureSwaggerUI(app, context);
+        app.UseAuditing();
+        app.UseAbpSerilogEnrichers();
+        app.UseConfiguredEndpoints();
+    }
+
+    private static void ConfigureSwaggerUI(IApplicationBuilder app, ApplicationInitializationContext context)
+    {
         app.UseSwagger();
         app.UseAbpSwaggerUI(options =>
         {
@@ -117,8 +145,5 @@ public class CashVoucherServiceHttpApiHostModule : AbpModule
             options.OAuthClientId(configuration["AuthServer:SwaggerClientId"]);
             options.OAuthClientSecret(configuration["AuthServer:SwaggerClientSecret"]);
         });
-        app.UseAuditing();
-        app.UseAbpSerilogEnrichers();
-        app.UseConfiguredEndpoints();
     }
 }
