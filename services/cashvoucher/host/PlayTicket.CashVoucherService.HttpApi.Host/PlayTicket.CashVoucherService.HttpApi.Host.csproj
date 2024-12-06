@@ -19,13 +19,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Compile Remove="Logs\**" />
-        <Content Remove="Logs\**" />
-        <EmbeddedResource Remove="Logs\**" />
-        <None Remove="Logs\**" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Content Remove="C:\Users\mohammed.nadeem.RAASOFT\.nuget\packages\volo.abp.account.web.openiddict\8.0.2\contentFiles\any\net8.0\Volo.Abp.Account.Web.OpenIddict.abppkg.analyze.json" />
     </ItemGroup>
 
