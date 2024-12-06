@@ -21,24 +21,22 @@ public class DbMigratorHostedService : IHostedService
 
     public async Task StartAsync(CancellationToken cancellationToken)
     {
-        using (var application = await AbpApplicationFactory.CreateAsync<PlayTicketDbMigratorModule>(options =>
+        using var application = await AbpApplicationFactory.CreateAsync<PlayTicketDbMigratorModule>(options =>
                {
                    options.Services.ReplaceConfiguration(_configuration);
                    options.UseAutofac();
                    options.Services.AddLogging(c => c.AddSerilog());
-               }))
-        {
-            await application.InitializeAsync();
+               });
+        await application.InitializeAsync();
 
-            await application
-                .ServiceProvider
-                .GetRequiredService<PlayTicketDbMigrationService>()
-                .MigrateAsync(cancellationToken);
+        await application
+            .ServiceProvider
+            .GetRequiredService<PlayTicketDbMigrationService>()
+            .MigrateAsync(cancellationToken);
 
-            await application.ShutdownAsync();
+        await application.ShutdownAsync();
 
-            _hostApplicationLifetime.StopApplication();
-        }
+        _hostApplicationLifetime.StopApplication();
     }
 
     public Task StopAsync(CancellationToken cancellationToken)

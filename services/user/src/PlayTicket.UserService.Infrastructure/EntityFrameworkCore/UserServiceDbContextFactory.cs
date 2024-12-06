@@ -3,22 +3,22 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 
-namespace PlayTicket.CashVoucherService.EntityFrameworkCore;
+namespace PlayTicket.UserService.EntityFrameworkCore;
 
-public class CashVoucherServiceDbContextFactory : IDesignTimeDbContextFactory<CashVoucherServiceDbContext>
+public class UserServiceDbContextFactory : IDesignTimeDbContextFactory<UserServiceDbContext>
 {
-    public CashVoucherServiceDbContext CreateDbContext(string[] args)
+    public UserServiceDbContext CreateDbContext(string[] args)
     {
-        var builder = new DbContextOptionsBuilder<CashVoucherServiceDbContext>()
+        var builder = new DbContextOptionsBuilder<UserServiceDbContext>()
             .UseMySql(GetConnectionStringFromConfiguration(), MySqlServerVersion.LatestSupportedServerVersion);
 
-        return new CashVoucherServiceDbContext(builder.Options);
+        return new UserServiceDbContext(builder.Options);
     }
 
     private static string GetConnectionStringFromConfiguration()
     {
         return BuildConfiguration()
-            .GetConnectionString(CashVoucherServiceDbProperties.ConnectionStringName);
+            .GetConnectionString(UserServiceDbProperties.ConnectionStringName);
     }
 
     private static IConfigurationRoot BuildConfiguration()
@@ -27,7 +27,7 @@ public class CashVoucherServiceDbContextFactory : IDesignTimeDbContextFactory<Ca
             .SetBasePath(
                 Path.Combine(
                     Directory.GetParent(Directory.GetCurrentDirectory())?.Parent!.FullName!,
-                    $"host{Path.DirectorySeparatorChar}PlayTicket.CashVoucherService.HttpApi.Host"
+                    $"host{Path.DirectorySeparatorChar}PlayTicket.UserServiceService.HttpApi.Host"
                 )
             )
             .AddJsonFile("appsettings.json", false);

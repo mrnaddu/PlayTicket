@@ -1,20 +1,16 @@
 ﻿using System.Threading.Tasks;
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
-using Volo.Abp.Guids;
 using Volo.Abp.MultiTenancy;
 
 namespace PlayTicket.UserService;
 
 public class UserServiceDataSeedContributor : IDataSeedContributor, ITransientDependency
 {
-    private readonly IGuidGenerator _guidGenerator;
     private readonly ICurrentTenant _currentTenant;
 
-    public UserServiceDataSeedContributor(
-        IGuidGenerator guidGenerator, ICurrentTenant currentTenant)
+    public UserServiceDataSeedContributor( ICurrentTenant currentTenant)
     {
-        _guidGenerator = guidGenerator;
         _currentTenant = currentTenant;
     }
 

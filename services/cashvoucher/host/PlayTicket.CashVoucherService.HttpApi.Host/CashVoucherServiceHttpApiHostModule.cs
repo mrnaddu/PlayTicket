@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.OpenApi.Models;
+using OpenIddict.Server.AspNetCore;
 using PlayTicket.CashVoucherService.EntityFrameworkCore;
 using PlayTicket.Hosting.Shared;
 using StackExchange.Redis;
@@ -32,6 +34,25 @@ public class CashVoucherServiceHttpApiHostModule : AbpModule
     {
         var hostingEnvironment = context.Services.GetHostingEnvironment();
         var configuration = context.Services.GetConfiguration();
+
+        if (!configuration.GetValue<bool>("App:DisablePII"))
+        {
+            IdentityModelEventSource.ShowPII = true;
+            IdentityModelEventSource.LogCompleteSecurityArtifact = true;
+        }
+
+        if (!configuration.GetValue<bool>("AuthServer:RequireHttpsMetadata"))
+        {
+            Configure<OpenIddictServerAspNetCoreOptions>(options =>
+            {
+                options.DisableTransportSecurityRequirement = true;
+            });
+
+            Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.ForwardedHeaders = ForwardedHeaders.XForwardedProto;
+            });
+        }
 
         ConfigureSwagger(context, configuration);
         ConfigureAuthentication(context, configuration);
@@ -95,7 +116,7 @@ public class CashVoucherServiceHttpApiHostModule : AbpModule
                         configuration["App:CorsOrigins"]
                             .Split(",", StringSplitOptions.RemoveEmptyEntries)
                             .Select(o => o.RemovePostFix("/"))
-                            .ToArray()
+                            .ToArray() ?? []
                     )
                     .WithAbpExposedHeaders()
                     .SetIsOriginAllowedToAllowWildcardSubdomains()
@@ -121,12 +142,15 @@ public class CashVoucherServiceHttpApiHostModule : AbpModule
             app.UseHsts();
         }
 
+        app.UseAbpSecurityHeaders();
         app.UseHttpsRedirection();
         app.UseCorrelationId();
         app.UseStaticFiles();
         app.UseRouting();
         app.UseCors();
         app.UseAuthentication();
+        app.UseUnitOfWork();
+        app.UseDynamicClaims();
         app.UseAbpRequestLocalization();
         app.UseAuthorization();
         ConfigureSwaggerUI(app, context);
