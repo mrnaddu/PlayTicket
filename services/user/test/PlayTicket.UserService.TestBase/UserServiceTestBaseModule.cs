@@ -12,7 +12,7 @@ namespace PlayTicket.UserService;
     typeof(AbpAutofacModule),
     typeof(AbpTestBaseModule),
     typeof(AbpAuthorizationModule),
-    typeof(ProjectsDomainModule)
+    typeof(UserServiceDomainModule)
     )]
 public class UserServiceTestBaseModule : AbpModule
 {

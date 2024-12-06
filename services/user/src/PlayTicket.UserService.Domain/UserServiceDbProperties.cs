@@ -1,6 +1,6 @@
 ﻿namespace PlayTicket.UserService;
 
-public static class ProjectsDbProperties
+public static class UserServiceDbProperties
 {
     public const string ConnectionStringName = "UserService";
     public static string DbTablePrefix { get; set; } = "UserService";

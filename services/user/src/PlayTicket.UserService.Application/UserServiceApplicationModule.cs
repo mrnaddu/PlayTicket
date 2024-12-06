@@ -6,7 +6,7 @@ using Volo.Abp.Modularity;
 namespace PlayTicket.UserService;
 
 [DependsOn(
-    typeof(ProjectsDomainModule),
+    typeof(UserServiceDomainModule),
     typeof(UserServiceApplicationContractsModule),
     typeof(AbpDddApplicationModule),
     typeof(AbpAutoMapperModule)

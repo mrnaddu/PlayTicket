@@ -1,13 +1,14 @@
-using System;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.EntityFrameworkCore.MySQL;
 using Volo.Abp.Modularity;
 
 namespace PlayTicket.CashVoucherService.EntityFrameworkCore;
 
 [DependsOn(
     typeof(CashVoucherServiceDomainModule),
-    typeof(AbpEntityFrameworkCoreModule)
+    typeof(AbpEntityFrameworkCoreModule),
+    typeof(AbpEntityFrameworkCoreMySQLModule)
 )]
 public class CashVoucherServiceEntityFrameworkCoreModule : AbpModule
 {
@@ -15,9 +16,9 @@ public class CashVoucherServiceEntityFrameworkCoreModule : AbpModule
     {
         Configure<AbpDbContextOptions>(options =>
         {
-            options.UseNpgsql();
+            options.UseMySQL();
         });
-        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
         context.Services.AddAbpDbContext<CashVoucherServiceDbContext>(options =>
         {
             /* Add custom repositories here. Example:

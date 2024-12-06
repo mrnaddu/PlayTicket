@@ -7,6 +7,6 @@ namespace PlayTicket.UserService;
     typeof(AbpDddDomainModule),
     typeof(UserServiceDomainSharedModule)
 )]
-public class ProjectsDomainModule : AbpModule
+public class UserServiceDomainModule : AbpModule
 {
 }
