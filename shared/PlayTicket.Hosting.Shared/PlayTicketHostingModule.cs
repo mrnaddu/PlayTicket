@@ -1,4 +1,3 @@
-using Volo.Abp.AspNetCore.MultiTenancy;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
 using Volo.Abp.Caching.StackExchangeRedis;
@@ -16,7 +15,6 @@ namespace PlayTicket.Hosting.Shared;
     typeof(AbpDataModule),
     typeof(AbpCachingStackExchangeRedisModule),
     typeof(AbpAspNetCoreSerilogModule),
-    typeof(AbpAspNetCoreMultiTenancyModule),
     typeof(AbpSwashbuckleModule),
     typeof(AbpEntityFrameworkCoreModule),
     typeof(AbpEntityFrameworkCorePostgreSqlModule)

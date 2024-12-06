@@ -5,7 +5,7 @@ namespace PlayTicket.UserService.EntityFrameworkCore;
 
 public static class UserServiceDbContextModelCreatingExtensions
 {
-    public static void ConfigureProjects(
+    public static void ConfigureUserService(
         this ModelBuilder builder)
     {
         Check.NotNull(builder, nameof(builder));
@@ -15,7 +15,7 @@ public static class UserServiceDbContextModelCreatingExtensions
         builder.Entity<Question>(b =>
         {
             //Configure table & schema name
-            b.ToTable(ProjectsDbProperties.DbTablePrefix + "Questions", ProjectsDbProperties.DbSchema);
+            b.ToTable(UserServiceDbProperties.DbTablePrefix + "Questions", UserServiceDbProperties.DbSchema);
 
             b.ConfigureByConvention();
 
