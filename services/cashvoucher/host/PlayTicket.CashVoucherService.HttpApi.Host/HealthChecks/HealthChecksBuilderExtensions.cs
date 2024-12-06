@@ -1,12 +1,12 @@
-﻿using System;
-using HealthChecks.UI.Client;
+﻿using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
-namespace PlayTicket.UserService.HealthChecks;
+namespace PlayTicket.CashVoucherService.HealthChecks;
 
 public static class HealthChecksBuilderExtensions
 {
@@ -14,7 +14,7 @@ public static class HealthChecksBuilderExtensions
     {
         // Add your health checks here
         var healthChecksBuilder = services.AddHealthChecks();
-        healthChecksBuilder.AddCheck<UserServiceDatabaseCheck>("UserService DbContext Check", tags: ["database"]);
+        healthChecksBuilder.AddCheck<CashVoucherServiceDatabaseCheck>("CashVoucherService DbContext Check", tags: ["database"]);
 
         services.ConfigureHealthCheckEndpoint("/health-status");
 
@@ -29,7 +29,7 @@ public static class HealthChecksBuilderExtensions
 
         var healthChecksUiBuilder = services.AddHealthChecksUI(settings =>
         {
-            settings.AddHealthCheckEndpoint("UserService Health Status", healthCheckUrl);
+            settings.AddHealthCheckEndpoint("CashVoucherService Health Status", healthCheckUrl);
         });
 
         // Set your HealthCheck UI Storage here
