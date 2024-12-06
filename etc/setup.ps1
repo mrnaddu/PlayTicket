@@ -45,4 +45,4 @@ Invoke-Expression "./playticket.ps1 migrate"
 
 # Completion message
 Write-Host "`nProject setup is complete!" -ForegroundColor Cyan
-Write-Host "You can now run the project using: '.\thatch.ps1 run'" -ForegroundColor Cyan
+Write-Host "You can now run the project using: '.\playticket.ps1 run'" -ForegroundColor Cyan

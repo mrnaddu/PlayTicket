@@ -1,15 +1,14 @@
-version: "3.9"
 services:
   mysql-db:
     container_name: mysql-db
     image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: "playticket123"  
-      MYSQL_DATABASE: "Test"  
       MYSQL_USER: "playticket" 
       MYSQL_PASSWORD: "playticket123"  
     volumes:
       - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "--silent"]
       interval: 10s
