@@ -3,14 +3,14 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PlayTicket.CashVoucherService.EntityFrameworkCore;
+using PlayTicket.CashVoucherService.EntityFrameworkCore.DbOffice;
 using Volo.Abp.EntityFrameworkCore;
 
 #nullable disable
 
 namespace PlayTicket.CashVoucherService.Migrations
 {
-    [DbContext(typeof(CashVoucherServiceDbContext))]
+    [DbContext(typeof(DbOfficeDbContext))]
     partial class CashVoucherServiceDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

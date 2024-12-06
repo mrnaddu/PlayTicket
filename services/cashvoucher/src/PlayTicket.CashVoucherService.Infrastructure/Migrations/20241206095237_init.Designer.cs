@@ -4,14 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PlayTicket.CashVoucherService.EntityFrameworkCore;
+using PlayTicket.CashVoucherService.EntityFrameworkCore.DbOffice;
 using Volo.Abp.EntityFrameworkCore;
 
 #nullable disable
 
 namespace PlayTicket.CashVoucherService.Migrations
 {
-    [DbContext(typeof(CashVoucherServiceDbContext))]
+    [DbContext(typeof(DbOfficeDbContext))]
     [Migration("20241206095237_init")]
     partial class init
     {

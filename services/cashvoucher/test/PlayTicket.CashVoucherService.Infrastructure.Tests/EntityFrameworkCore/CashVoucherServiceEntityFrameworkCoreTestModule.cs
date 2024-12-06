@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
+using PlayTicket.CashVoucherService.EntityFrameworkCore.DbOffice;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.Sqlite;
 using Volo.Abp.Modularity;
@@ -33,8 +34,8 @@ public class CashVoucherServiceEntityFrameworkCoreTestModule : AbpModule
         var connection = new SqliteConnection("Data Source=:memory:");
         connection.Open();
 
-        new CashVoucherServiceDbContext(
-            new DbContextOptionsBuilder<CashVoucherServiceDbContext>().UseSqlite(connection).Options
+        new DbOfficeDbContext(
+            new DbContextOptionsBuilder<DbOfficeDbContext>().UseSqlite(connection).Options
         ).GetService<IRelationalDatabaseCreator>().CreateTables();
 
         return connection;

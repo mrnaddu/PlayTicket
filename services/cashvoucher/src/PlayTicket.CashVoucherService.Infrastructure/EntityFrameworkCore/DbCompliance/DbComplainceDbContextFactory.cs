@@ -3,16 +3,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 
-namespace PlayTicket.CashVoucherService.EntityFrameworkCore;
+namespace PlayTicket.CashVoucherService.EntityFrameworkCore.DbCompliance;
 
-public class CashVoucherServiceDbContextFactory : IDesignTimeDbContextFactory<CashVoucherServiceDbContext>
+public class DbComplainceDbContextFactory : IDesignTimeDbContextFactory<DbComplainceDbContext>
 {
-    public CashVoucherServiceDbContext CreateDbContext(string[] args)
+    public DbComplainceDbContext CreateDbContext(string[] args)
     {
-        var builder = new DbContextOptionsBuilder<CashVoucherServiceDbContext>()
+        var builder = new DbContextOptionsBuilder<DbComplainceDbContext>()
             .UseMySql(GetConnectionStringFromConfiguration(), MySqlServerVersion.LatestSupportedServerVersion);
 
-        return new CashVoucherServiceDbContext(builder.Options);
+        return new DbComplainceDbContext(builder.Options);
     }
 
     private static string GetConnectionStringFromConfiguration()

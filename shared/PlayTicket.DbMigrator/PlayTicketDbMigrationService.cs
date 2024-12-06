@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using PlayTicket.CashVoucherService.EntityFrameworkCore;
+using PlayTicket.CashVoucherService.EntityFrameworkCore.DbOffice;
 using PlayTicket.UserService.EntityFrameworkCore;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
@@ -37,7 +37,7 @@ public class PlayTicketDbMigrationService : ITransientDependency
         using (var uow = _unitOfWorkManager.Begin(true))
         {
             await MigrateDatabaseAsync<UserServiceDbContext>(cancellationToken);
-            await MigrateDatabaseAsync<CashVoucherServiceDbContext>(cancellationToken);
+            await MigrateDatabaseAsync<DbOfficeDbContext>(cancellationToken);
             await uow.CompleteAsync(cancellationToken);
         }
 

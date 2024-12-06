@@ -1,18 +1,18 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 
-namespace PlayTicket.CashVoucherService.EntityFrameworkCore;
+namespace PlayTicket.CashVoucherService.EntityFrameworkCore.DbCompliance;
 
 [ConnectionStringName(CashVoucherServiceDbProperties.DbOfficeConnectionStringName)]
-public class CashVoucherServiceDbContext : AbpDbContext<CashVoucherServiceDbContext>,
-    ICashVoucherServiceDbContext
+public class DbComplainceDbContext : AbpDbContext<DbComplainceDbContext>,
+    IDbComplainceDbContext
 {
     /* Add DbSet for each Aggregate Root here. Example:
      * public DbSet<Question> Questions { get; set; }
      */
 
-    public CashVoucherServiceDbContext(DbContextOptions<CashVoucherServiceDbContext> options)
+    public DbComplainceDbContext(DbContextOptions<DbComplainceDbContext> options)
         : base(options)
     {
     }

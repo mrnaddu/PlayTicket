@@ -1,4 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
+using PlayTicket.CashVoucherService.EntityFrameworkCore.DbCompliance;
+using PlayTicket.CashVoucherService.EntityFrameworkCore.DbOffice;
 using Volo.Abp.Dapper;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.MySQL;
@@ -21,7 +23,8 @@ public class CashVoucherServiceEntityFrameworkCoreModule : AbpModule
             options.UseMySQL();
         });
 
-        context.Services.AddAbpDbContext<CashVoucherServiceDbContext>(options =>
+        // dboffice
+        context.Services.AddAbpDbContext<DbOfficeDbContext>(options =>
         {
             /* Add custom repositories here. Example:
              * options.AddRepository<Question, EfCoreQuestionRepository>();
@@ -30,7 +33,22 @@ public class CashVoucherServiceEntityFrameworkCoreModule : AbpModule
             options.AddDefaultRepositories(true);
         });
 
-        context.Services.AddAbpDbContext<CashVoucherServiceDbContext>(options =>
+        context.Services.AddAbpDbContext<DbOfficeDbContext>(options =>
+        {
+            options.AddDefaultRepositories(true);
+        });
+
+        // dbcompliance
+        context.Services.AddAbpDbContext<DbComplainceDbContext>(options =>
+        {
+            /* Add custom repositories here. Example:
+             * options.AddRepository<Question, EfCoreQuestionRepository>();
+             */
+
+            options.AddDefaultRepositories(true);
+        });
+
+        context.Services.AddAbpDbContext<DbComplainceDbContext>(options =>
         {
             options.AddDefaultRepositories(true);
         });
