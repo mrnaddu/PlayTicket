@@ -37,8 +37,10 @@ public class PlayTicketDbMigrationService : ITransientDependency
         _logger.LogInformation("Migrating databases...");
         using (var uow = _unitOfWorkManager.Begin(true))
         {
-            await MigrateDatabaseAsync<UserServiceDbContext>(cancellationToken);
-            await MigrateDatabaseAsync<DbOfficeDbContext>(cancellationToken);
+            await MigrateDatabaseAsync<CashVoucherService.EntityFrameworkCore.DbCompliance.DbComplainceDbContext>(cancellationToken);
+            await MigrateDatabaseAsync<UserService.EntityFrameworkCore.DbCompliance.DbComplainceDbContext>(cancellationToken);
+            await MigrateDatabaseAsync<CashVoucherService.EntityFrameworkCore.DbOffice.DbOfficeDbContext>(cancellationToken);
+            await MigrateDatabaseAsync<UserService.EntityFrameworkCore.DbOffice.DbOfficeDbContext>(cancellationToken);
             await uow.CompleteAsync(cancellationToken);
         }
 
