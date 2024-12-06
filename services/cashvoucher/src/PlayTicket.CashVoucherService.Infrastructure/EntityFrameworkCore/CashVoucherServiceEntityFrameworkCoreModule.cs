@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using Volo.Abp.Dapper;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.MySQL;
 using Volo.Abp.Modularity;
@@ -8,7 +9,8 @@ namespace PlayTicket.CashVoucherService.EntityFrameworkCore;
 [DependsOn(
     typeof(CashVoucherServiceDomainModule),
     typeof(AbpEntityFrameworkCoreModule),
-    typeof(AbpEntityFrameworkCoreMySQLModule)
+    typeof(AbpEntityFrameworkCoreMySQLModule),
+    typeof(AbpDapperModule)
 )]
 public class CashVoucherServiceEntityFrameworkCoreModule : AbpModule
 {
