@@ -3,7 +3,7 @@ using Volo.Abp.EntityFrameworkCore;
 
 namespace PlayTicket.CashVoucherService.EntityFrameworkCore;
 
-[ConnectionStringName(CashVoucherServiceDbProperties.ConnectionStringName)]
+[ConnectionStringName(CashVoucherServiceDbProperties.DbOfficeConnectionStringName)]
 public interface ICashVoucherServiceDbContext : IEfCoreDbContext
 {
     /* Add DbSet for each Aggregate Root here. Example:

@@ -2,7 +2,7 @@
 
 public static class CashVoucherServiceDbProperties
 {
-    public const string ConnectionStringName = "CashVoucherService";
+    public const string DbOfficeConnectionStringName = "DbOffice";
     public static string DbTablePrefix { get; set; } = "CashVoucherService";
 
     public static string DbSchema { get; set; } = null;

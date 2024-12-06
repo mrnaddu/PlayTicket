@@ -18,7 +18,7 @@ public class CashVoucherServiceDbContextFactory : IDesignTimeDbContextFactory<Ca
     private static string GetConnectionStringFromConfiguration()
     {
         return BuildConfiguration()
-            .GetConnectionString(CashVoucherServiceDbProperties.ConnectionStringName);
+            .GetConnectionString(CashVoucherServiceDbProperties.DbOfficeConnectionStringName);
     }
 
     private static IConfigurationRoot BuildConfiguration()

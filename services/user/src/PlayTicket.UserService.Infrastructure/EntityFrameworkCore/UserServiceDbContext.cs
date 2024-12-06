@@ -4,7 +4,7 @@ using Volo.Abp.EntityFrameworkCore;
 
 namespace PlayTicket.UserService.EntityFrameworkCore;
 
-[ConnectionStringName(UserServiceDbProperties.ConnectionStringName)]
+[ConnectionStringName(UserServiceDbProperties.DbOfficeConnectionStringName)]
 public class UserServiceDbContext : AbpDbContext<UserServiceDbContext>,
     IUserServiceDbContext
 {

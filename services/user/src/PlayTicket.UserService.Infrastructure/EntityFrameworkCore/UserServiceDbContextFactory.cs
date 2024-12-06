@@ -18,7 +18,7 @@ public class UserServiceDbContextFactory : IDesignTimeDbContextFactory<UserServi
     private static string GetConnectionStringFromConfiguration()
     {
         return BuildConfiguration()
-            .GetConnectionString(UserServiceDbProperties.ConnectionStringName);
+            .GetConnectionString(UserServiceDbProperties.DbOfficeConnectionStringName);
     }
 
     private static IConfigurationRoot BuildConfiguration()

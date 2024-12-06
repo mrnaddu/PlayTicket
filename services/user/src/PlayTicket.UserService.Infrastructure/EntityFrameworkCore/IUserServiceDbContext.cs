@@ -3,7 +3,7 @@ using Volo.Abp.EntityFrameworkCore;
 
 namespace PlayTicket.UserService.EntityFrameworkCore;
 
-[ConnectionStringName(UserServiceDbProperties.ConnectionStringName)]
+[ConnectionStringName(UserServiceDbProperties.DbOfficeConnectionStringName)]
 public interface IUserServiceDbContext : IEfCoreDbContext
 {
     /* Add DbSet for each Aggregate Root here. Example:
