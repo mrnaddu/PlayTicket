@@ -27,7 +27,7 @@ public class UserServiceDbContextFactory : IDesignTimeDbContextFactory<UserServi
             .SetBasePath(
                 Path.Combine(
                     Directory.GetParent(Directory.GetCurrentDirectory())?.Parent!.FullName!,
-                    $"host{Path.DirectorySeparatorChar}PlayTicket.UserServiceService.HttpApi.Host"
+                    $"host{Path.DirectorySeparatorChar}PlayTicket.UserService.HttpApi.Host"
                 )
             )
             .AddJsonFile("appsettings.json", false);

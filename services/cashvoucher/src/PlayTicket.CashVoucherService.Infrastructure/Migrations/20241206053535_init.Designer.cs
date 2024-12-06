@@ -11,7 +11,7 @@ using Volo.Abp.EntityFrameworkCore;
 namespace PlayTicket.CashVoucherService.Migrations
 {
     [DbContext(typeof(CashVoucherServiceDbContext))]
-    [Migration("20241206052503_init")]
+    [Migration("20241206053535_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace PlayTicket.CashVoucherService.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("_Abp_DatabaseProvider", EfCoreDatabaseProvider.MySql)
-                .HasAnnotation("ProductVersion", "8.0.1")
+                .HasAnnotation("ProductVersion", "8.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 #pragma warning restore 612, 618
         }
