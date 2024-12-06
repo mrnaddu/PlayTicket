@@ -4,7 +4,7 @@ using Volo.Abp.EntityFrameworkCore;
 
 namespace PlayTicket.CashVoucherService.EntityFrameworkCore.DbCompliance;
 
-[ConnectionStringName(CashVoucherServiceDbProperties.DbOfficeConnectionStringName)]
+[ConnectionStringName(CashVoucherServiceDbProperties.DbComplianceConnectionStringName)]
 public class DbComplainceDbContext : AbpDbContext<DbComplainceDbContext>,
     IDbComplainceDbContext
 {

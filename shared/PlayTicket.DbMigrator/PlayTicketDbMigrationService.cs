@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using PlayTicket.CashVoucherService.EntityFrameworkCore.DbOffice;
 using PlayTicket.UserService.EntityFrameworkCore;
+using PlayTicket.UserService.EntityFrameworkCore.DbOffice;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.Uow;

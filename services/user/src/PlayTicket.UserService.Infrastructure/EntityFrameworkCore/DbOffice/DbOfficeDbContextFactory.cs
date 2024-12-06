@@ -3,16 +3,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 
-namespace PlayTicket.UserService.EntityFrameworkCore;
+namespace PlayTicket.UserService.EntityFrameworkCore.DbOffice;
 
-public class UserServiceDbContextFactory : IDesignTimeDbContextFactory<UserServiceDbContext>
+public class DbOfficeDbContextFactory : IDesignTimeDbContextFactory<DbOfficeDbContext>
 {
-    public UserServiceDbContext CreateDbContext(string[] args)
+    public DbOfficeDbContext CreateDbContext(string[] args)
     {
-        var builder = new DbContextOptionsBuilder<UserServiceDbContext>()
+        var builder = new DbContextOptionsBuilder<DbOfficeDbContext>()
             .UseMySql(GetConnectionStringFromConfiguration(), MySqlServerVersion.LatestSupportedServerVersion);
 
-        return new UserServiceDbContext(builder.Options);
+        return new DbOfficeDbContext(builder.Options);
     }
 
     private static string GetConnectionStringFromConfiguration()
@@ -27,7 +27,7 @@ public class UserServiceDbContextFactory : IDesignTimeDbContextFactory<UserServi
             .SetBasePath(
                 Path.Combine(
                     Directory.GetParent(Directory.GetCurrentDirectory())?.Parent!.FullName!,
-                    $"host{Path.DirectorySeparatorChar}PlayTicket.UserService.HttpApi.Host"
+                    $"host{Path.DirectorySeparatorChar}PlayTicket.CashVoucherService.HttpApi.Host"
                 )
             )
             .AddJsonFile("appsettings.json", false);

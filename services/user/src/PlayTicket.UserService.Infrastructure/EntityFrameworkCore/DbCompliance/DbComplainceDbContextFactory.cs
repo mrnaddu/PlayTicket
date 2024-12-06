@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 
-namespace PlayTicket.CashVoucherService.EntityFrameworkCore.DbCompliance;
+namespace PlayTicket.UserService.EntityFrameworkCore.DbCompliance;
 
 public class DbComplainceDbContextFactory : IDesignTimeDbContextFactory<DbComplainceDbContext>
 {
@@ -18,7 +18,7 @@ public class DbComplainceDbContextFactory : IDesignTimeDbContextFactory<DbCompla
     private static string GetConnectionStringFromConfiguration()
     {
         return BuildConfiguration()
-            .GetConnectionString(CashVoucherServiceDbProperties.DbComplianceConnectionStringName);
+            .GetConnectionString(UserServiceDbProperties.DbComplianceConnectionStringName);
     }
 
     private static IConfigurationRoot BuildConfiguration()
