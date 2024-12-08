@@ -53,3 +53,7 @@ To apply migrations only:
 Running Swagger UI for Both Microservices:
 CashVoucherService: http://localhost:7001/swagger
 UserService: http://localhost:7002/swagger
+
+Accessing the MySQL Database in Docker: 
+docker exec -it mysql-db mysql -u root -p
+
