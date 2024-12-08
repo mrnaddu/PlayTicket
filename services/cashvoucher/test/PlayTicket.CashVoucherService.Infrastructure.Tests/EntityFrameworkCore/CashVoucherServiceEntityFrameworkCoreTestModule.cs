@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
+using PlayTicket.CashVoucherService.EntityFrameworkCore.DbCompliance;
 using PlayTicket.CashVoucherService.EntityFrameworkCore.DbOffice;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.Sqlite;
@@ -36,6 +37,10 @@ public class CashVoucherServiceEntityFrameworkCoreTestModule : AbpModule
 
         new DbOfficeDbContext(
             new DbContextOptionsBuilder<DbOfficeDbContext>().UseSqlite(connection).Options
+        ).GetService<IRelationalDatabaseCreator>().CreateTables();
+
+        new DbComplainceDbContext(
+            new DbContextOptionsBuilder<DbComplainceDbContext>().UseSqlite(connection).Options
         ).GetService<IRelationalDatabaseCreator>().CreateTables();
 
         return connection;

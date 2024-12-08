@@ -1,7 +1,9 @@
-﻿using Microsoft.Data.Sqlite;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
+using MySqlConnector;
+using PlayTicket.UserService.EntityFrameworkCore.DbCompliance;
+using PlayTicket.UserService.EntityFrameworkCore.DbOffice;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.Sqlite;
 using Volo.Abp.Modularity;
@@ -28,13 +30,17 @@ public class UserServiceEntityFrameworkCoreTestModule : AbpModule
         });
     }
 
-    private static SqliteConnection CreateDatabaseAndGetConnection()
+    private static MySqlConnection CreateDatabaseAndGetConnection()
     {
-        var connection = new SqliteConnection("Data Source=:memory:");
+        var connection = new MySqlConnection("Data Source=:memory:");
         connection.Open();
 
-        new UserServiceDbContext(
-            new DbContextOptionsBuilder<UserServiceDbContext>().UseSqlite(connection).Options
+        new DbOfficeDbContext(
+            new DbContextOptionsBuilder<DbOfficeDbContext>().UseSqlite(connection).Options
+        ).GetService<IRelationalDatabaseCreator>().CreateTables();
+
+        new DbComplainceDbContext(
+            new DbContextOptionsBuilder<DbComplainceDbContext>().UseSqlite(connection).Options
         ).GetService<IRelationalDatabaseCreator>().CreateTables();
 
         return connection;
