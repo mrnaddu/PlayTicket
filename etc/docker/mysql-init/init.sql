@@ -1,0 +1,7 @@
+CREATE DATABASE IF NOT EXISTS db_office;
+CREATE DATABASE IF NOT EXISTS db_compliance;
+
+GRANT ALL PRIVILEGES ON db_office.* TO 'root'@'%';
+GRANT ALL PRIVILEGES ON db_compliance.* TO 'root'@'%';
+
+FLUSH PRIVILEGES;
