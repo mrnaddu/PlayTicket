@@ -4,15 +4,15 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PlayTicket.UserService.EntityFrameworkCore.DbOffice;
+using PlayTicket.UserService.EntityFrameworkCore.DbCompliance;
 using Volo.Abp.EntityFrameworkCore;
 
 #nullable disable
 
 namespace PlayTicket.UserService.Migrations
 {
-    [DbContext(typeof(DbOfficeDbContext))]
-    [Migration("20241209092957_init")]
+    [DbContext(typeof(DbComplainceDbContext))]
+    [Migration("20241209113118_init")]
     partial class init
     {
         /// <inheritdoc />

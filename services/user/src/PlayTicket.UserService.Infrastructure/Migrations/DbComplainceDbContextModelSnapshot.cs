@@ -3,15 +3,15 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PlayTicket.UserService.EntityFrameworkCore.DbOffice;
+using PlayTicket.UserService.EntityFrameworkCore.DbCompliance;
 using Volo.Abp.EntityFrameworkCore;
 
 #nullable disable
 
 namespace PlayTicket.UserService.Migrations
 {
-    [DbContext(typeof(DbOfficeDbContext))]
-    partial class DbOfficeDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(DbComplainceDbContext))]
+    partial class DbComplainceDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
