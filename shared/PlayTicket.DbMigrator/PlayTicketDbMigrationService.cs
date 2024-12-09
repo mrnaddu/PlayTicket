@@ -47,12 +47,15 @@ public class PlayTicketDbMigrationService : ITransientDependency
     private async Task MigrateDatabaseAsync<TDbContext>(CancellationToken cancellationToken)
         where TDbContext : DbContext, IEfCoreDbContext
     {
-        _logger.LogInformation($"Migrating {typeof(TDbContext).Name.RemovePostFix("DbContext")} database...");
+        var contextName = typeof(TDbContext).Name.RemovePostFix("DbContext");
+        _logger.LogInformation($"Migrating {contextName} database...");
 
         var dbContext = await _unitOfWorkManager.Current.ServiceProvider
             .GetRequiredService<IDbContextProvider<TDbContext>>()
             .GetDbContextAsync();
 
         await dbContext.Database.MigrateAsync(cancellationToken);
+
+        _logger.LogInformation($"{contextName} database migration completed successfully.");
     }
 }

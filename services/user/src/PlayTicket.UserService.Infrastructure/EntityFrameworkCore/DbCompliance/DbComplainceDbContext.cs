@@ -16,6 +16,10 @@ public class DbComplainceDbContext : AbpDbContext<DbComplainceDbContext>,
     }
     public DbSet<User> Users => throw new System.NotImplementedException();
 
+    public DbSet<UserGroup> UserGroups => throw new System.NotImplementedException();
+
+    public DbSet<UserGroupAccess> UserGroupAccesses => throw new System.NotImplementedException();
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);

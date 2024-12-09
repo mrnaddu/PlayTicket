@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PlayTicket.UserService.EntityFrameworkCore.DbCompliance;
 using Volo.Abp.EntityFrameworkCore;
@@ -11,9 +12,11 @@ using Volo.Abp.EntityFrameworkCore;
 namespace PlayTicket.UserService.Migrations
 {
     [DbContext(typeof(DbComplainceDbContext))]
-    partial class DbComplainceDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241209115915_usergroupaceesss")]
+    partial class usergroupaceesss
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

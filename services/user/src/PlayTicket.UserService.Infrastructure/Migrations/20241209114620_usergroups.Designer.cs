@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PlayTicket.UserService.EntityFrameworkCore.DbCompliance;
 using Volo.Abp.EntityFrameworkCore;
@@ -11,9 +12,11 @@ using Volo.Abp.EntityFrameworkCore;
 namespace PlayTicket.UserService.Migrations
 {
     [DbContext(typeof(DbComplainceDbContext))]
-    partial class DbComplainceDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241209114620_usergroups")]
+    partial class usergroups
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -80,26 +83,6 @@ namespace PlayTicket.UserService.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("t_user_group", (string)null);
-                });
-
-            modelBuilder.Entity("PlayTicket.UserService.Users.UserGroupAccess", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("id");
-
-                    b.Property<string>("Assets")
-                        .HasColumnType("longtext")
-                        .HasColumnName("asset");
-
-                    b.Property<Guid>("GroupId")
-                        .HasColumnType("char(36)")
-                        .HasColumnName("group_uid");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("t_user_group_access", (string)null);
                 });
 #pragma warning restore 612, 618
         }
