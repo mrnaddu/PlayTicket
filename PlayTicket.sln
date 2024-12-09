@@ -14,8 +14,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8D0555B6-9418-4373-AAD5-74BC25768D9D}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
-		etc\run.ps1 = etc\run.ps1
-		tye.yaml = tye.yaml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayTicket.AppHost", "PlayTicket.AppHost\PlayTicket.AppHost.csproj", "{8DB15713-440F-40DF-BAF3-F6A376F81CE0}"
