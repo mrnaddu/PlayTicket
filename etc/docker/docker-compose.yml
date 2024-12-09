@@ -1,41 +1,69 @@
-version: '3.8'  # Specify the version of Docker Compose
-
 services:
   mysql-db:
     container_name: mysql-db
     image: mysql:8.0
     environment:
-      MYSQL_ROOT_PASSWORD: "root"  # Set the root password for MySQL
+      MYSQL_ROOT_PASSWORD: "root"
     volumes:
-      - mysql_data:/var/lib/mysql  # Persistent storage for MySQL data
-      - ./mysql-init:/docker-entrypoint-initdb.d  # Initialization scripts
+      - mysql_data:/var/lib/mysql
+      - ./mysql-init:/docker-entrypoint-initdb.d
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "--silent"]  # Health check command
-      interval: 10s  # Interval between health checks
-      timeout: 5s  # Timeout for each health check
-      retries: 5  # Number of retries before considering the service unhealthy
+      test: ["CMD", "mysqladmin", "ping", "--silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     ports:
-      - 3308:3306  # Map host port 3308 to container port 3306
+      - 3308:3306
     networks:
-      - my_network  # Connect to the specified network
-    restart: always  # Restart policy
+      - my_network
+    restart: always
 
   redis:
     image: redis:latest
     container_name: redis
-    restart: always  # Restart policy
+    restart: always
     ports:
-      - 6379:6379  # Map host port 6379 to container port 6379
+      - 6379:6379
     volumes:
-      - redis_data:/docker/data/redis  # Persistent storage for Redis data
-    command: redis-server --appendonly yes  # Command to run Redis with append-only file
+      - redis_data:/docker/data/redis
+    command: redis-server --appendonly yes
     networks:
-      - my_network  # Connect to the specified network
+      - my_network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - my_network
+    environment:
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+
+  seq:
+    image: datalust/seq:latest
+    container_name: seq
+    restart: always
+    ports:
+      - 5341:80
+    networks:
+      - my_network
+    environment:
+      - ACCEPT_EULA=Y
+    SEQ_API_KEY: "DyfUIl5tkvhszhFsMapj"  
+
+    healthcheck:
+      interval: 30s
+      timeout: 30s
+      retries: 3  
 
 volumes:
-  mysql_data:  # Volume for MySQL data
-  redis_data:  # Volume for Redis data
+  mysql_data:
+  redis_data:
 
 networks:
-  my_network:  # Define a custom network
-    driver: bridge  # Use the bridge driver
+  my_network:
+    driver: bridge
