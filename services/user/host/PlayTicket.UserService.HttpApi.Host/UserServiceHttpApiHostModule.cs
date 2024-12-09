@@ -12,7 +12,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.OpenApi.Models;
-using OpenIddict.Server.AspNetCore;
 using PlayTicket.Hosting.Shared;
 using PlayTicket.UserService.EntityFrameworkCore;
 using StackExchange.Redis;
@@ -43,11 +42,6 @@ public class UserServiceHttpApiHostModule : AbpModule
 
         if (!configuration.GetValue<bool>("AuthServer:RequireHttpsMetadata"))
         {
-            Configure<OpenIddictServerAspNetCoreOptions>(options =>
-            {
-                options.DisableTransportSecurityRequirement = true;
-            });
-
             Configure<ForwardedHeadersOptions>(options =>
             {
                 options.ForwardedHeaders = ForwardedHeaders.XForwardedProto;
