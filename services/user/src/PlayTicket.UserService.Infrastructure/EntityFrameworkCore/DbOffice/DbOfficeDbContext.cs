@@ -21,6 +21,6 @@ public class DbOfficeDbContext : AbpDbContext<DbOfficeDbContext>,
     {
         base.OnModelCreating(builder);
 
-        builder.ConfigureUserService();
+        builder.ConfigureDbOffice();
     }
 }

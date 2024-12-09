@@ -3,7 +3,9 @@ $ErrorActionPreference = "Stop"  # Stop execution on any error
 # Define required services to check
 $requiredServices = @(
     'mysql-db',
-    'redis'
+    'redis',
+    'seq',
+    'rabbit-mq',
 )
 
 # Function to check if a service is running in Docker

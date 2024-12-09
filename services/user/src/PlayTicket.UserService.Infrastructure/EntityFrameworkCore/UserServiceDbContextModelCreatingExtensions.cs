@@ -1,33 +1,36 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PlayTicket.UserService.Users;
 using Volo.Abp;
 
 namespace PlayTicket.UserService.EntityFrameworkCore;
 
 public static class UserServiceDbContextModelCreatingExtensions
 {
-    public static void ConfigureUserService(
+    public static void ConfigureDbComplaince(
         this ModelBuilder builder)
     {
         Check.NotNull(builder, nameof(builder));
-
-        /* Configure all entities here. Example:
-
-        builder.Entity<Question>(b =>
+        builder.Entity<User>(u =>
         {
-            //Configure table & schema name
-            b.ToTable(UserServiceDbProperties.DbTablePrefix + "Questions", UserServiceDbProperties.DbSchema);
-
-            b.ConfigureByConvention();
-
-            //Properties
-            b.Property(q => q.Title).IsRequired().HasMaxLength(QuestionConsts.MaxTitleLength);
-
-            //Relations
-            b.HasMany(question => question.Tags).WithOne().HasForeignKey(qt => qt.QuestionId);
-
-            //Indexes
-            b.HasIndex(q => q.CreationTime);
+            u.ToTable(name: "t_user");
+            u.Property(user => user.Id)
+                .HasColumnName("id");
+            u.Property(user => user.ReferenceId)
+                .HasColumnName("reference_id");
+            u.Property(user => user.UserId)
+                .HasColumnName("user_uid");
+            u.Property(user => user.Name)
+                .HasColumnName("name");
+            u.Property(user => user.CreatedDateTime)
+                .HasColumnName("created_dttm");
+            u.Property(user => user.Status)
+                .HasColumnName("status");
         });
-        */
+    }
+
+    public static void ConfigureDbOffice(
+        this ModelBuilder builder)
+    {
+        Check.NotNull(builder, nameof(builder));
     }
 }

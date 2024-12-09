@@ -27,7 +27,7 @@ public class DbComplainceDbContextFactory : IDesignTimeDbContextFactory<DbCompla
             .SetBasePath(
                 Path.Combine(
                     Directory.GetParent(Directory.GetCurrentDirectory())?.Parent!.FullName!,
-                    $"host{Path.DirectorySeparatorChar}PlayTicket.CashVoucherService.HttpApi.Host"
+                    $"host{Path.DirectorySeparatorChar}PlayTicket.UserService.HttpApi.Host"
                 )
             )
             .AddJsonFile("appsettings.json", false);

@@ -8,10 +8,6 @@ namespace PlayTicket.CashVoucherService.EntityFrameworkCore.DbCompliance;
 public class DbComplainceDbContext : AbpDbContext<DbComplainceDbContext>,
     IDbComplainceDbContext
 {
-    /* Add DbSet for each Aggregate Root here. Example:
-     * public DbSet<Question> Questions { get; set; }
-     */
-
     public DbComplainceDbContext(DbContextOptions<DbComplainceDbContext> options)
         : base(options)
     {
@@ -21,6 +17,6 @@ public class DbComplainceDbContext : AbpDbContext<DbComplainceDbContext>,
     {
         base.OnModelCreating(builder);
 
-        builder.ConfigureAdministration();
+        builder.ConfigureDbOffice();
     }
 }
