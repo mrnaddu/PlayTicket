@@ -8,6 +8,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="AWSSDK.CognitoIdentityProvider" Version="4.0.0-preview.4" />
+        <PackageReference Include="AWSSDK.SecretsManager" Version="4.0.0-preview.4" />
         <PackageReference Include="Volo.Abp.Dapper" Version="8.0.2" />
         <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="8.0.2" />
         <PackageReference Include="Volo.Abp.EntityFrameworkCore.MySQL" Version="8.0.2" />

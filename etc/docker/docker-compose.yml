@@ -25,7 +25,7 @@ services:
     ports:
       - 6379:6379
     volumes:
-      - redis_data:/docker/data/redis
+      - redis_data:/data
     command: redis-server --appendonly yes
     networks:
       - my_network
@@ -42,6 +42,9 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: "guest"
       RABBITMQ_DEFAULT_PASS: "guest"
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+      - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
 
   seq:
     image: datalust/seq:latest
@@ -53,8 +56,9 @@ services:
       - my_network
     environment:
       - ACCEPT_EULA=Y
-    SEQ_API_KEY: "DyfUIl5tkvhszhFsMapj"  
-
+      - SEQ_API_KEY=DyfUIl5tkvhszhFsMapj
+    volumes:
+      - seq_data:/data
     healthcheck:
       interval: 30s
       timeout: 30s
@@ -63,6 +67,8 @@ services:
 volumes:
   mysql_data:
   redis_data:
+  rabbitmq_data:
+  seq_data:
 
 networks:
   my_network:
