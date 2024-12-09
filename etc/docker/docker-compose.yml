@@ -1,31 +1,41 @@
+version: '3.8'  # Specify the version of Docker Compose
 
 services:
   mysql-db:
     container_name: mysql-db
     image: mysql:8.0
     environment:
-      MYSQL_ROOT_PASSWORD: "root"  
+      MYSQL_ROOT_PASSWORD: "root"  # Set the root password for MySQL
     volumes:
-      - mysql_data:/var/lib/mysql
-      - ./mysql-init:/docker-entrypoint-initdb.d  
+      - mysql_data:/var/lib/mysql  # Persistent storage for MySQL data
+      - ./mysql-init:/docker-entrypoint-initdb.d  # Initialization scripts
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "--silent"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+      test: ["CMD", "mysqladmin", "ping", "--silent"]  # Health check command
+      interval: 10s  # Interval between health checks
+      timeout: 5s  # Timeout for each health check
+      retries: 5  # Number of retries before considering the service unhealthy
     ports:
-      - 3308:3306  
+      - 3308:3306  # Map host port 3308 to container port 3306
+    networks:
+      - my_network  # Connect to the specified network
+    restart: always  # Restart policy
 
   redis:
     image: redis:latest
     container_name: redis
-    restart: always
+    restart: always  # Restart policy
     ports:
-      - 6379:6379
+      - 6379:6379  # Map host port 6379 to container port 6379
     volumes:
-      - redis_data:/docker/data/redis
-    command: redis-server --appendonly yes
+      - redis_data:/docker/data/redis  # Persistent storage for Redis data
+    command: redis-server --appendonly yes  # Command to run Redis with append-only file
+    networks:
+      - my_network  # Connect to the specified network
 
 volumes:
-  mysql_data:
-  redis_data:
+  mysql_data:  # Volume for MySQL data
+  redis_data:  # Volume for Redis data
+
+networks:
+  my_network:  # Define a custom network
+    driver: bridge  # Use the bridge driver
