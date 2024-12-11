@@ -11,4 +11,5 @@ public interface IDbComplainceDbContext : IEfCoreDbContext
     DbSet<User> Users { get; }
     DbSet<UserGroup> UserGroups { get; }
     DbSet<UserGroupAccess> UserGroupAccesses { get; }
+    DbSet<UserUserGroupMap> UserUserGroupMaps { get; }
 }

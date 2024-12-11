@@ -57,6 +57,19 @@ public static class UserServiceDbContextModelCreatingExtensions
             u.Property(user => user.Assets)
                 .HasColumnName("asset");
         });
+
+        // userusergroupmaps
+        Check.NotNull(builder, nameof(builder));
+        builder.Entity<UserUserGroupMap>(u =>
+        {
+            u.ToTable(name: "t_user_user_group_mapping");
+            u.Property(user => user.Id)
+                .HasColumnName("id");
+            u.Property(user => user.GroupId)
+                .HasColumnName("group_uid");
+            u.Property(user => user.UserId)
+                .HasColumnName("user_uid");
+        });
     }
 
     public static void ConfigureDbOffice(
