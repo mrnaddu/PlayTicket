@@ -10,18 +10,12 @@ using Volo.Abp.Uow;
 
 namespace PlayTicket.DbMigrator;
 
-public class PlayTicketDbMigrationService : ITransientDependency
+public class PlayTicketDbMigrationService(
+    ILogger<PlayTicketDbMigrationService> logger, IUnitOfWorkManager unitOfWorkManager)
+    : ITransientDependency
 {
-    private readonly ILogger<PlayTicketDbMigrationService> _logger;
-    private readonly IUnitOfWorkManager _unitOfWorkManager;
-
-    public PlayTicketDbMigrationService(
-        ILogger<PlayTicketDbMigrationService> logger,
-        IUnitOfWorkManager unitOfWorkManager)
-    {
-        _logger = logger;
-        _unitOfWorkManager = unitOfWorkManager;
-    }
+    private readonly ILogger<PlayTicketDbMigrationService> _logger = logger;
+    private readonly IUnitOfWorkManager _unitOfWorkManager = unitOfWorkManager;
 
     public async Task MigrateAsync(CancellationToken cancellationToken)
     {
@@ -34,9 +28,7 @@ public class PlayTicketDbMigrationService : ITransientDependency
         _logger.LogInformation("Migrating databases...");
         using (var uow = _unitOfWorkManager.Begin(true))
         {
-            await MigrateDatabaseAsync<CashVoucherService.EntityFrameworkCore.DbCompliance.DbComplainceDbContext>(cancellationToken);
             await MigrateDatabaseAsync<UserService.EntityFrameworkCore.DbCompliance.DbComplainceDbContext>(cancellationToken);
-            await MigrateDatabaseAsync<CashVoucherService.EntityFrameworkCore.DbOffice.DbOfficeDbContext>(cancellationToken);
             await MigrateDatabaseAsync<UserService.EntityFrameworkCore.DbOffice.DbOfficeDbContext>(cancellationToken);
             await uow.CompleteAsync(cancellationToken);
         }
@@ -48,7 +40,7 @@ public class PlayTicketDbMigrationService : ITransientDependency
         where TDbContext : DbContext, IEfCoreDbContext
     {
         var contextName = typeof(TDbContext).Name.RemovePostFix("DbContext");
-        _logger.LogInformation($"Migrating {contextName} database...");
+        _logger.LogInformation("Migrating {contextName} database...", contextName);
 
         var dbContext = await _unitOfWorkManager.Current.ServiceProvider
             .GetRequiredService<IDbContextProvider<TDbContext>>()
@@ -56,6 +48,6 @@ public class PlayTicketDbMigrationService : ITransientDependency
 
         await dbContext.Database.MigrateAsync(cancellationToken);
 
-        _logger.LogInformation($"{contextName} database migration completed successfully.");
+        _logger.LogInformation("{contextName} database migration completed successfully.", contextName);
     }
 }

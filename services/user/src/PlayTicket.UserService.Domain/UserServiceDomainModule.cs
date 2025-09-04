@@ -9,4 +9,5 @@ namespace PlayTicket.UserService;
 )]
 public class UserServiceDomainModule : AbpModule
 {
+
 }

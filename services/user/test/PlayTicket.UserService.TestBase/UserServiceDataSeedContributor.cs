@@ -5,21 +5,13 @@ using Volo.Abp.MultiTenancy;
 
 namespace PlayTicket.UserService;
 
-public class UserServiceDataSeedContributor : IDataSeedContributor, ITransientDependency
+public class UserServiceDataSeedContributor(ICurrentTenant currentTenant)
+    : IDataSeedContributor, ITransientDependency
 {
-    private readonly ICurrentTenant _currentTenant;
-
-    public UserServiceDataSeedContributor( ICurrentTenant currentTenant)
-    {
-        _currentTenant = currentTenant;
-    }
+    private readonly ICurrentTenant _currentTenant = currentTenant;
 
     public Task SeedAsync(DataSeedContext context)
     {
-        /* Instead of returning the Task.CompletedTask, you can insert your test data
-         * at this point!
-         */
-
         using (_currentTenant.Change(context?.TenantId))
         {
             return Task.CompletedTask;

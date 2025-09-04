@@ -8,16 +8,12 @@ using Volo.Abp;
 
 namespace PlayTicket.DbMigrator;
 
-public class DbMigratorHostedService : IHostedService
+public class DbMigratorHostedService(
+    IHostApplicationLifetime hostApplicationLifetime, IConfiguration configuration)
+    : IHostedService
 {
-    private readonly IConfiguration _configuration;
-    private readonly IHostApplicationLifetime _hostApplicationLifetime;
-
-    public DbMigratorHostedService(IHostApplicationLifetime hostApplicationLifetime, IConfiguration configuration)
-    {
-        _hostApplicationLifetime = hostApplicationLifetime;
-        _configuration = configuration;
-    }
+    private readonly IConfiguration _configuration = configuration;
+    private readonly IHostApplicationLifetime _hostApplicationLifetime = hostApplicationLifetime;
 
     public async Task StartAsync(CancellationToken cancellationToken)
     {

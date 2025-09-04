@@ -14,7 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\services\cashvoucher\host\PlayTicket.CashVoucherService.HttpApi.Host\PlayTicket.CashVoucherService.HttpApi.Host.csproj" />
     <ProjectReference Include="..\services\user\host\PlayTicket.UserService.HttpApi.Host\PlayTicket.UserService.HttpApi.Host.csproj" />
   </ItemGroup>
 

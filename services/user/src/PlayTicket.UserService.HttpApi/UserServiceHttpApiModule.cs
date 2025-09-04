@@ -1,8 +1,5 @@
-﻿using Localization.Resources.AbpUi;
-using Microsoft.Extensions.DependencyInjection;
-using PlayTicket.UserService.Localization;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.AspNetCore.Mvc;
-using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 
 namespace PlayTicket.UserService;
@@ -17,16 +14,6 @@ public class UserServiceHttpApiModule : AbpModule
         PreConfigure<IMvcBuilder>(mvcBuilder =>
         {
             mvcBuilder.AddApplicationPartIfNotExists(typeof(UserServiceHttpApiModule).Assembly);
-        });
-    }
-
-    public override void ConfigureServices(ServiceConfigurationContext context)
-    {
-        Configure<AbpLocalizationOptions>(options =>
-        {
-            options.Resources
-                .Get<UserServiceResource>()
-                .AddBaseTypes(typeof(AbpUiResource));
         });
     }
 }

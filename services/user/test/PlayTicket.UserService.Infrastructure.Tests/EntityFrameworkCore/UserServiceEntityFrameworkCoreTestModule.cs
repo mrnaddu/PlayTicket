@@ -12,7 +12,7 @@ namespace PlayTicket.UserService.EntityFrameworkCore;
 
 [DependsOn(
     typeof(UserServiceTestBaseModule),
-    typeof(UserServiceEntityFrameworkCoreModule),
+    typeof(UserServiceInfrastructureModule),
     typeof(AbpEntityFrameworkCoreSqliteModule)
     )]
 public class UserServiceEntityFrameworkCoreTestModule : AbpModule

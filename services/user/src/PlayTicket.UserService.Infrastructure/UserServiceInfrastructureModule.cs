@@ -6,7 +6,7 @@ using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.MySQL;
 using Volo.Abp.Modularity;
 
-namespace PlayTicket.UserService.EntityFrameworkCore;
+namespace PlayTicket.UserService;
 
 [DependsOn(
     typeof(UserServiceDomainModule),
@@ -14,7 +14,7 @@ namespace PlayTicket.UserService.EntityFrameworkCore;
     typeof(AbpEntityFrameworkCoreMySQLModule),
     typeof(AbpDapperModule)
 )]
-public class UserServiceEntityFrameworkCoreModule : AbpModule
+public class UserServiceInfrastructureModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
@@ -23,28 +23,8 @@ public class UserServiceEntityFrameworkCoreModule : AbpModule
             options.UseMySQL();
         });
 
-        // dboffice
         context.Services.AddAbpDbContext<DbOfficeDbContext>(options =>
         {
-            /* Add custom repositories here. Example:
-             * options.AddRepository<Question, EfCoreQuestionRepository>();
-             */
-
-            options.AddDefaultRepositories(true);
-        });
-
-        context.Services.AddAbpDbContext<DbOfficeDbContext>(options =>
-        {
-            options.AddDefaultRepositories(true);
-        });
-
-        // dbcompliance
-        context.Services.AddAbpDbContext<DbComplainceDbContext>(options =>
-        {
-            /* Add custom repositories here. Example:
-             * options.AddRepository<Question, EfCoreQuestionRepository>();
-             */
-
             options.AddDefaultRepositories(true);
         });
 
