@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.Projects.Domain.Shared", "src\PlayTicket.Projects.Domain.Shared\PlayTicket.Projects.Domain.Shared.csproj", "{D64C1577-4929-4B60-939E-96DE1534891A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.UserService.Domain.Shared", "src\PlayTicket.UserService.Domain.Shared\PlayTicket.UserService.Domain.Shared.csproj", "{D64C1577-4929-4B60-939E-96DE1534891A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.Projects.Domain", "src\PlayTicket.Projects.Domain\PlayTicket.Projects.Domain.csproj", "{F2840BC7-0188-4606-9126-DADD0F5ABF7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.UserService.Domain", "src\PlayTicket.UserService.Domain\PlayTicket.UserService.Domain.csproj", "{F2840BC7-0188-4606-9126-DADD0F5ABF7A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.Projects.Application.Contracts", "src\PlayTicket.Projects.Application.Contracts\PlayTicket.Projects.Application.Contracts.csproj", "{BD65D04F-08D5-40C1-8C24-77CA0BACB877}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.UserService.Application.Contracts", "src\PlayTicket.UserService.Application.Contracts\PlayTicket.UserService.Application.Contracts.csproj", "{BD65D04F-08D5-40C1-8C24-77CA0BACB877}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.Projects.Application", "src\PlayTicket.Projects.Application\PlayTicket.Projects.Application.csproj", "{78040F9E-3501-4A40-82DF-00A597710F35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.UserService.Application", "src\PlayTicket.UserService.Application\PlayTicket.UserService.Application.csproj", "{78040F9E-3501-4A40-82DF-00A597710F35}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{649A3FFA-182F-4E56-9717-E6A9A2BEC545}"
 EndProject
@@ -17,23 +17,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{CCD2960C-2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "host", "host", "{E400416D-2895-4512-9D17-90681EEC7E0A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.Projects.EntityFrameworkCore", "src\PlayTicket.Projects.EntityFrameworkCore\PlayTicket.Projects.EntityFrameworkCore.csproj", "{0CE86223-D31D-4315-A1F5-87BA3EE1B844}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.UserService.Infrastructure", "src\PlayTicket.UserService.Infrastructure\PlayTicket.UserService.Infrastructure.csproj", "{0CE86223-D31D-4315-A1F5-87BA3EE1B844}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.Projects.HttpApi", "src\PlayTicket.Projects.HttpApi\PlayTicket.Projects.HttpApi.csproj", "{077AA5F8-8B61-420C-A6B5-0150A66FDB34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.UserService.HttpApi", "src\PlayTicket.UserService.HttpApi\PlayTicket.UserService.HttpApi.csproj", "{077AA5F8-8B61-420C-A6B5-0150A66FDB34}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.Projects.HttpApi.Client", "src\PlayTicket.Projects.HttpApi.Client\PlayTicket.Projects.HttpApi.Client.csproj", "{36E2735F-CEAB-44C8-A6D1-2CDAFF399751}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.UserService.HttpApi.Client", "src\PlayTicket.UserService.HttpApi.Client\PlayTicket.UserService.HttpApi.Client.csproj", "{36E2735F-CEAB-44C8-A6D1-2CDAFF399751}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.Projects.TestBase", "test\PlayTicket.Projects.TestBase\PlayTicket.Projects.TestBase.csproj", "{C5BB573D-3030-4BCB-88B7-F6A85C32766C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.UserService.TestBase", "test\PlayTicket.UserService.TestBase\PlayTicket.UserService.TestBase.csproj", "{C5BB573D-3030-4BCB-88B7-F6A85C32766C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.Projects.EntityFrameworkCore.Tests", "test\PlayTicket.Projects.EntityFrameworkCore.Tests\PlayTicket.Projects.EntityFrameworkCore.Tests.csproj", "{527F645C-C1FC-406E-8479-81386C8ECF13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.UserService.Infrastructure.Tests", "test\PlayTicket.UserService.Infrastructure.Tests\PlayTicket.UserService.Infrastructure.Tests.csproj", "{527F645C-C1FC-406E-8479-81386C8ECF13}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.Projects.Domain.Tests", "test\PlayTicket.Projects.Domain.Tests\PlayTicket.Projects.Domain.Tests.csproj", "{E60895E5-79C4-447D-88B7-85CB5BA336A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.UserService.Domain.Tests", "test\PlayTicket.UserService.Domain.Tests\PlayTicket.UserService.Domain.Tests.csproj", "{E60895E5-79C4-447D-88B7-85CB5BA336A4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.Projects.Application.Tests", "test\PlayTicket.Projects.Application.Tests\PlayTicket.Projects.Application.Tests.csproj", "{90CB5DC4-C040-45C7-8900-9688B26405BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.UserService.Application.Tests", "test\PlayTicket.UserService.Application.Tests\PlayTicket.UserService.Application.Tests.csproj", "{90CB5DC4-C040-45C7-8900-9688B26405BC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.Projects.HttpApi.Host", "host\PlayTicket.Projects.HttpApi.Host\PlayTicket.Projects.HttpApi.Host.csproj", "{37B135B0-DAFE-4616-B25C-1BDF32FC44A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.UserService.HttpApi.Host", "host\PlayTicket.UserService.HttpApi.Host\PlayTicket.UserService.HttpApi.Host.csproj", "{37B135B0-DAFE-4616-B25C-1BDF32FC44A2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.Projects.HttpApi.Client.ConsoleTestApp", "test\PlayTicket.Projects.HttpApi.Client.ConsoleTestApp\PlayTicket.Projects.HttpApi.Client.ConsoleTestApp.csproj", "{1EDCD6D4-DF3A-4E3B-ABB6-C0D0B373EAB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.UserService.HttpApi.Client.ConsoleTestApp", "test\PlayTicket.UserService.HttpApi.Client.ConsoleTestApp\PlayTicket.UserService.HttpApi.Client.ConsoleTestApp.csproj", "{1EDCD6D4-DF3A-4E3B-ABB6-C0D0B373EAB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

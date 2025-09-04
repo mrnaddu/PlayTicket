@@ -7,72 +7,48 @@
     }
   },
   "packages": {
-    "PlayTicket.Projects.Domain.Shared": {
-      "path": "src/PlayTicket.Projects.Domain.Shared/PlayTicket.Projects.Domain.Shared.abppkg.json",
+    "PlayTicket.UserService.Domain.Shared": {
+      "path": "src/PlayTicket.UserService.Domain.Shared/PlayTicket.UserService.Domain.Shared.abppkg.json",
       "folder": "src"
     },
-    "PlayTicket.Projects.Domain": {
-      "path": "src/PlayTicket.Projects.Domain/PlayTicket.Projects.Domain.abppkg.json",
+    "PlayTicket.UserService.Domain": {
+      "path": "src/PlayTicket.UserService.Domain/PlayTicket.UserService.Domain.abppkg.json",
       "folder": "src"
     },
-    "PlayTicket.Projects.Application.Contracts": {
-      "path": "src/PlayTicket.Projects.Application.Contracts/PlayTicket.Projects.Application.Contracts.abppkg.json",
+    "PlayTicket.UserService.Application.Contracts": {
+      "path": "src/PlayTicket.UserService.Application.Contracts/PlayTicket.UserService.Application.Contracts.abppkg.json",
       "folder": "src"
     },
-    "PlayTicket.Projects.Application": {
-      "path": "src/PlayTicket.Projects.Application/PlayTicket.Projects.Application.abppkg.json",
+    "PlayTicket.UserService.Application": {
+      "path": "src/PlayTicket.UserService.Application/PlayTicket.UserService.Application.abppkg.json",
       "folder": "src"
     },
-    "PlayTicket.Projects.EntityFrameworkCore": {
-      "path": "src/PlayTicket.Projects.EntityFrameworkCore/PlayTicket.Projects.EntityFrameworkCore.abppkg.json",
+    "PlayTicket.UserService.Infrastructure": {
+      "path": "src/PlayTicket.UserService.Infrastructure/PlayTicket.UserService.Infrastructure.abppkg.json",
       "folder": "src"
     },
-    "PlayTicket.Projects.MongoDB": {
-      "path": "src/PlayTicket.Projects.MongoDB/PlayTicket.Projects.MongoDB.abppkg.json",
+    "PlayTicket.UserService.HttpApi": {
+      "path": "src/PlayTicket.UserService.HttpApi/PlayTicket.UserService.HttpApi.abppkg.json",
       "folder": "src"
     },
-    "PlayTicket.Projects.HttpApi": {
-      "path": "src/PlayTicket.Projects.HttpApi/PlayTicket.Projects.HttpApi.abppkg.json",
-      "folder": "src"
-    },
-    "PlayTicket.Projects.HttpApi.Client": {
-      "path": "src/PlayTicket.Projects.HttpApi.Client/PlayTicket.Projects.HttpApi.Client.abppkg.json",
-      "folder": "src"
-    },
-    "PlayTicket.Projects.TestBase": {
-      "path": "test/PlayTicket.Projects.TestBase/PlayTicket.Projects.TestBase.abppkg.json",
+    "PlayTicket.UserService.TestBase": {
+      "path": "test/PlayTicket.UserService.TestBase/PlayTicket.UserService.TestBase.abppkg.json",
       "folder": "test"
     },
-    "PlayTicket.Projects.EntityFrameworkCore.Tests": {
-      "path": "test/PlayTicket.Projects.EntityFrameworkCore.Tests/PlayTicket.Projects.EntityFrameworkCore.Tests.abppkg.json",
+    "PlayTicket.UserService.Infrastructure.Tests": {
+      "path": "test/PlayTicket.UserService.Infrastructure.Tests/PlayTicket.UserService.Infrastructure.Tests.abppkg.json",
       "folder": "test"
     },
-    "PlayTicket.Projects.MongoDB.Tests": {
-      "path": "test/PlayTicket.Projects.MongoDB.Tests/PlayTicket.Projects.MongoDB.Tests.abppkg.json",
+    "PlayTicket.UserService.Domain.Tests": {
+      "path": "test/PlayTicket.UserService.Domain.Tests/PlayTicket.UserService.Domain.Tests.abppkg.json",
       "folder": "test"
     },
-    "PlayTicket.Projects.Domain.Tests": {
-      "path": "test/PlayTicket.Projects.Domain.Tests/PlayTicket.Projects.Domain.Tests.abppkg.json",
+    "PlayTicket.UserService.Application.Tests": {
+      "path": "test/PlayTicket.UserService.Application.Tests/PlayTicket.UserService.Application.Tests.abppkg.json",
       "folder": "test"
     },
-    "PlayTicket.Projects.Application.Tests": {
-      "path": "test/PlayTicket.Projects.Application.Tests/PlayTicket.Projects.Application.Tests.abppkg.json",
-      "folder": "test"
-    },
-    "PlayTicket.Projects.HttpApi.Host": {
-      "path": "host/PlayTicket.Projects.HttpApi.Host/PlayTicket.Projects.HttpApi.Host.abppkg.json",
-      "folder": "host"
-    },
-    "PlayTicket.Projects.HttpApi.Client.ConsoleTestApp": {
-      "path": "test/PlayTicket.Projects.HttpApi.Client.ConsoleTestApp/PlayTicket.Projects.HttpApi.Client.ConsoleTestApp.abppkg.json",
-      "folder": "test"
-    },
-    "PlayTicket.Projects.IdentityServer": {
-      "path": "host/PlayTicket.Projects.IdentityServer/PlayTicket.Projects.IdentityServer.abppkg.json",
-      "folder": "host"
-    },
-    "PlayTicket.Projects.Host.Shared": {
-      "path": "host/PlayTicket.Projects.Host.Shared/PlayTicket.Projects.Host.Shared.abppkg.json",
+    "PlayTicket.UserService.HttpApi.Host": {
+      "path": "host/PlayTicket.UserService.HttpApi.Host/PlayTicket.UserService.HttpApi.Host.abppkg.json",
       "folder": "host"
     }
   }

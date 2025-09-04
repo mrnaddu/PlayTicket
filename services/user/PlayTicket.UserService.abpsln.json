@@ -1,7 +1,7 @@
 {
   "modules": {
-    "PlayTicket.Projects": {
-      "path": "PlayTicket.Projects.abpmdl.json"
+    "PlayTicket.UserService": {
+      "path": "PlayTicket.UserService.abpmdl.json"
     }
   }
 }
