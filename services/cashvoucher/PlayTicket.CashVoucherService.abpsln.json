@@ -1,7 +1,0 @@
-{
-  "modules": {
-    "PlayTicket.Administration": {
-      "path": "PlayTicket.Administration.abpmdl.json"
-    }
-  }
-}
