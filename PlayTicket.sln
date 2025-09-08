@@ -7,8 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{ED
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{140ED621-3D93-4523-8B62-BE6850E04698}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.DbMigrator", "shared\PlayTicket.DbMigrator\PlayTicket.DbMigrator.csproj", "{D6921133-0AFF-4473-A469-7F2226AB5C1F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayTicket.Hosting.Shared", "shared\PlayTicket.Hosting.Shared\PlayTicket.Hosting.Shared.csproj", "{14078787-9BEA-40B7-B9A6-C5FFE1DA55A9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8D0555B6-9418-4373-AAD5-74BC25768D9D}"
@@ -61,10 +59,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D6921133-0AFF-4473-A469-7F2226AB5C1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D6921133-0AFF-4473-A469-7F2226AB5C1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D6921133-0AFF-4473-A469-7F2226AB5C1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D6921133-0AFF-4473-A469-7F2226AB5C1F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{14078787-9BEA-40B7-B9A6-C5FFE1DA55A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{14078787-9BEA-40B7-B9A6-C5FFE1DA55A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14078787-9BEA-40B7-B9A6-C5FFE1DA55A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -126,7 +120,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{D6921133-0AFF-4473-A469-7F2226AB5C1F} = {140ED621-3D93-4523-8B62-BE6850E04698}
 		{14078787-9BEA-40B7-B9A6-C5FFE1DA55A9} = {140ED621-3D93-4523-8B62-BE6850E04698}
 		{8506D754-AA5B-40FD-9788-D9BB513967B1} = {140ED621-3D93-4523-8B62-BE6850E04698}
 		{2E1C23F3-C9FC-4A61-8977-B0E362612130} = {ED0A7918-04FA-4040-B641-4CA249074083}
