@@ -6,7 +6,8 @@ namespace PlayTicket.UserService;
 
 [DependsOn(
     typeof(UserServiceApplicationContractsModule),
-    typeof(AbpAspNetCoreMvcModule))]
+    typeof(AbpAspNetCoreMvcModule)
+)]
 public class UserServiceHttpApiModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)

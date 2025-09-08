@@ -4,4 +4,5 @@ namespace PlayTicket.UserService;
 
 public class UserServiceApplicationAutoMapperProfile : Profile
 {
+
 }

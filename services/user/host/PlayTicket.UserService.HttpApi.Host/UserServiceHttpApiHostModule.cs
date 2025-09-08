@@ -46,8 +46,7 @@ namespace PlayTicket.UserService;
 )]
 public sealed class UserServiceHttpApiHostModule : AbpModule
 {
-    private const string FIRSTSYSTEM = "FirstSystem";
-    private const string SECONDSYSTEM = "SecondSystem";
+    private const string AUTH_SCHEME = "Bearer";
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
         var configuration = context.Services.GetConfiguration();
@@ -118,7 +117,6 @@ public sealed class UserServiceHttpApiHostModule : AbpModule
             logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Debug);
         });
     }
-
     private static void ConfigureAmazonServices(ServiceConfigurationContext context)
     {
         context.Services.AddSingleton<AmazonCognitoIdentityProviderClient>();
@@ -137,21 +135,15 @@ public sealed class UserServiceHttpApiHostModule : AbpModule
             options.DocInclusionPredicate((_, _) => true);
             options.CustomSchemaIds(type => type.FullName);
 
-            void AddSecurity(string scheme, string description)
+            options.AddSecurityDefinition(AUTH_SCHEME, new OpenApiSecurityScheme
             {
-                options.AddSecurityDefinition(scheme, new OpenApiSecurityScheme
-                {
-                    In = ParameterLocation.Header,
-                    Description = description,
-                    Name = "Authorization",
-                    Type = SecuritySchemeType.Http,
-                    BearerFormat = "JWT",
-                    Scheme = "Bearer"
-                });
-            }
-
-            AddSecurity(FIRSTSYSTEM, "Enter JWT token prefixed with Bearer for FirstSystem authentication");
-            AddSecurity(SECONDSYSTEM, "Enter JWT token prefixed with Bearer for SecondSystem authentication");
+                In = ParameterLocation.Header,
+                Description = "Enter JWT token prefixed with Bearer",
+                Name = "Authorization",
+                Type = SecuritySchemeType.Http,
+                BearerFormat = "JWT",
+                Scheme = "Bearer"
+            });
 
             options.AddSecurityRequirement(new OpenApiSecurityRequirement
             {
@@ -161,26 +153,14 @@ public sealed class UserServiceHttpApiHostModule : AbpModule
                         Reference = new OpenApiReference
                         {
                             Type = ReferenceType.SecurityScheme,
-                            Id = FIRSTSYSTEM
-                        }
-                    },
-                    Array.Empty<string>()
-                },
-                {
-                    new OpenApiSecurityScheme
-                    {
-                        Reference = new OpenApiReference
-                        {
-                            Type = ReferenceType.SecurityScheme,
-                            Id = SECONDSYSTEM
+                            Id = AUTH_SCHEME
                         }
                     },
                     Array.Empty<string>()
                 }
             });
 
-            var xmlPath = Path.Combine(
-                AppContext.BaseDirectory, "PlayTicket.UserService.HttpApi.xml");
+            var xmlPath = Path.Combine(AppContext.BaseDirectory, "PlayTicket.UserService.HttpApi.xml");
             if (File.Exists(xmlPath))
             {
                 options.IncludeXmlComments(xmlPath);
@@ -197,68 +177,33 @@ public sealed class UserServiceHttpApiHostModule : AbpModule
 
         context.Services.AddAuthentication(options =>
         {
-            options.DefaultAuthenticateScheme = FIRSTSYSTEM;
-            options.DefaultChallengeScheme = FIRSTSYSTEM;
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
         })
-        .AddJwtBearer(FIRSTSYSTEM, options =>
+        .AddJwtBearer(options =>
         {
-            ConfigureToken(
-                options, authOptions.TckPoolId, authOptions.Region, authOptions.TckClientId);
-        })
-        .AddJwtBearer(SECONDSYSTEM, options =>
-        {
-            ConfigureToken(
-                options, authOptions.KskPoolId, authOptions.Region, authOptions.KskClientId);
+            var authority = $"https://cognito-idp.{authOptions.Region}.amazonaws.com/{authOptions.TckPoolId}";
+            options.Authority = authority;
+            options.RequireHttpsMetadata = false;
+
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                ValidateAudience = true,
+                ValidAudience = authOptions.TckClientId,
+                ValidateIssuer = true,
+                ValidIssuer = authority,
+                ValidateLifetime = true,
+                ClockSkew = TimeSpan.FromMinutes(2)
+            };
         });
     }
-    private static void ConfigureToken(
-        JwtBearerOptions options, string poolId, string region, string clientId)
-    {
-        ConfigureJwtBearer(options, poolId, region);
-        options.TokenValidationParameters.ValidAudience = clientId;
-    }
-
-    private static void ConfigureJwtBearer(
-        JwtBearerOptions options, string poolId, string region)
-    {
-        var authority = $"https://cognito-idp.{region}.amazonaws.com/{poolId}";
-        options.Authority = authority;
-        options.RequireHttpsMetadata = false;
-
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuerSigningKey = true,
-            ValidateAudience = false,
-            ValidateIssuer = true,
-            ValidIssuer = authority,
-            ValidateLifetime = true,
-            ClockSkew = TimeSpan.FromMinutes(2)
-        };
-    }
-
     private static void ConfigureAuthorization(ServiceConfigurationContext context)
     {
         context.Services.AddAuthorizationBuilder()
-            .AddPolicy("RequireFirstSystem", policy =>
-            {
-                policy.AuthenticationSchemes.Add(FIRSTSYSTEM);
-                policy.RequireClaim("SystemName", FIRSTSYSTEM);
-            })
-            .AddPolicy("RequireSecondSystem", policy =>
-            {
-                policy.AuthenticationSchemes.Add(SECONDSYSTEM);
-                policy.RequireClaim("SystemName", SECONDSYSTEM);
-            })
-            .AddPolicy("RequireAnySystem", policy =>
+            .AddPolicy("RequireAuthentication", policy =>
             {
                 policy.RequireAuthenticatedUser();
-                policy.RequireAssertion(ctx =>
-                    ctx.User.HasClaim(c =>
-                        c.Type is "SystemName" &&
-                        (string.Equals(c.Value, FIRSTSYSTEM, StringComparison.Ordinal) ||
-                         string.Equals(c.Value, SECONDSYSTEM, StringComparison.Ordinal))
-                    )
-                );
             });
     }
     private void ConfigureDistributedCache()
@@ -287,10 +232,9 @@ public sealed class UserServiceHttpApiHostModule : AbpModule
                 serializerOptions.NumberHandling = JsonNumberHandling.AllowReadingFromString;
             });
     }
-
     private static void ConfigureDataProtection(ServiceConfigurationContext context, RedisOptions redisOptions)
     {
-        var builder = context.Services.AddDataProtection().SetApplicationName(FIRSTSYSTEM);
+        var builder = context.Services.AddDataProtection().SetApplicationName("PlayTicket");
 
         if (bool.TryParse(redisOptions.IsEnabled, out var enabled) && enabled && !string.IsNullOrWhiteSpace(redisOptions.Configuration))
         {
@@ -314,13 +258,11 @@ public sealed class UserServiceHttpApiHostModule : AbpModule
             });
         });
     }
-
     private static void ConfigureHealthCheck(ServiceConfigurationContext context)
     {
         context.Services.AddHealthChecks()
             .AddCheck("self", () => HealthCheckResult.Healthy());
     }
-
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
     {
         IdentityModelEventSource.ShowPII = true;

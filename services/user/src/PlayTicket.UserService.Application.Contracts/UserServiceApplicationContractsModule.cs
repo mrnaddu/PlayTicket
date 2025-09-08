@@ -11,4 +11,5 @@ namespace PlayTicket.UserService;
 )]
 public class UserServiceApplicationContractsModule : AbpModule
 {
+
 }
