@@ -3,7 +3,7 @@ using PlayTicket.UserService.EntityFrameworkCore.DbCompliance;
 using PlayTicket.UserService.EntityFrameworkCore.DbOffice;
 using Volo.Abp.Dapper;
 using Volo.Abp.EntityFrameworkCore;
-using Volo.Abp.EntityFrameworkCore.MySQL;
+using Volo.Abp.EntityFrameworkCore.PostgreSql;
 using Volo.Abp.Modularity;
 
 namespace PlayTicket.UserService;
@@ -11,7 +11,7 @@ namespace PlayTicket.UserService;
 [DependsOn(
     typeof(UserServiceDomainModule),
     typeof(AbpEntityFrameworkCoreModule),
-    typeof(AbpEntityFrameworkCoreMySQLModule),
+    typeof(AbpEntityFrameworkCorePostgreSqlModule),
     typeof(AbpDapperModule)
 )]
 public class UserServiceInfrastructureModule : AbpModule
@@ -20,7 +20,7 @@ public class UserServiceInfrastructureModule : AbpModule
     {
         Configure<AbpDbContextOptions>(options =>
         {
-            options.UseMySQL();
+            options.UseNpgsql();
         });
 
         context.Services.AddAbpDbContext<DbOfficeDbContext>(options =>

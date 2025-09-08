@@ -1,11 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Storage;
-using MySqlConnector;
+using Npgsql;
 using PlayTicket.UserService.EntityFrameworkCore.DbCompliance;
 using PlayTicket.UserService.EntityFrameworkCore.DbOffice;
 using Volo.Abp.EntityFrameworkCore;
-using Volo.Abp.EntityFrameworkCore.Sqlite;
+using Volo.Abp.EntityFrameworkCore.PostgreSql;
 using Volo.Abp.Modularity;
 
 namespace PlayTicket.UserService.EntityFrameworkCore;
@@ -13,35 +11,45 @@ namespace PlayTicket.UserService.EntityFrameworkCore;
 [DependsOn(
     typeof(UserServiceTestBaseModule),
     typeof(UserServiceInfrastructureModule),
-    typeof(AbpEntityFrameworkCoreSqliteModule)
+    typeof(AbpEntityFrameworkCorePostgreSqlModule)
     )]
 public class UserServiceEntityFrameworkCoreTestModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
-        var sqliteConnection = CreateDatabaseAndGetConnection();
+        var pgConnection = CreateDatabaseAndGetConnection();
 
         Configure<AbpDbContextOptions>(options =>
         {
             options.Configure(abpDbContextConfigurationContext =>
             {
-                abpDbContextConfigurationContext.DbContextOptions.UseSqlite(sqliteConnection);
+                abpDbContextConfigurationContext.DbContextOptions.UseNpgsql(pgConnection);
             });
         });
     }
 
-    private static MySqlConnection CreateDatabaseAndGetConnection()
+    private static NpgsqlConnection CreateDatabaseAndGetConnection()
     {
-        var connection = new MySqlConnection("Data Source=:memory:");
+        var connection = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=yourpassword;Database=test_db");
         connection.Open();
 
-        new DbOfficeDbContext(
-            new DbContextOptionsBuilder<DbOfficeDbContext>().UseSqlite(connection).Options
-        ).GetService<IRelationalDatabaseCreator>().CreateTables();
+        var officeOptions = new DbContextOptionsBuilder<DbOfficeDbContext>()
+            .UseNpgsql(connection)
+            .Options;
 
-        new DbComplainceDbContext(
-            new DbContextOptionsBuilder<DbComplainceDbContext>().UseSqlite(connection).Options
-        ).GetService<IRelationalDatabaseCreator>().CreateTables();
+        var complianceOptions = new DbContextOptionsBuilder<DbComplainceDbContext>()
+            .UseNpgsql(connection)
+            .Options;
+
+        using (var context = new DbOfficeDbContext(officeOptions))
+        {
+            context.Database.EnsureCreated();
+        }
+
+        using (var context = new DbComplainceDbContext(complianceOptions))
+        {
+            context.Database.EnsureCreated();
+        }
 
         return connection;
     }

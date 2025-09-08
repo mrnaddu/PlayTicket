@@ -3,7 +3,7 @@ using Volo.Abp.Autofac;
 using Volo.Abp.Caching.StackExchangeRedis;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
-using Volo.Abp.EntityFrameworkCore.MySQL;
+using Volo.Abp.EntityFrameworkCore.PostgreSql;
 using Volo.Abp.Modularity;
 using Volo.Abp.Swashbuckle;
 
@@ -16,7 +16,7 @@ namespace PlayTicket.Hosting.Shared;
     typeof(AbpAspNetCoreSerilogModule),
     typeof(AbpSwashbuckleModule),
     typeof(AbpEntityFrameworkCoreModule),
-    typeof(AbpEntityFrameworkCoreMySQLModule)
+    typeof(AbpEntityFrameworkCorePostgreSqlModule)
 )]
 public class PlayTicketHostingModule : AbpModule
 {
@@ -24,7 +24,7 @@ public class PlayTicketHostingModule : AbpModule
     {
         Configure<AbpDbContextOptions>(options =>
         {
-            options.UseMySQL();
+            options.UseNpgsql();
         });
     }
 }

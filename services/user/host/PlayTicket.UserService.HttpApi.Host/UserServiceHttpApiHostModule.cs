@@ -48,7 +48,6 @@ public sealed class UserServiceHttpApiHostModule : AbpModule
 {
     private const string FIRSTSYSTEM = "FirstSystem";
     private const string SECONDSYSTEM = "SecondSystem";
-
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
         var configuration = context.Services.GetConfiguration();
@@ -110,7 +109,6 @@ public sealed class UserServiceHttpApiHostModule : AbpModule
             genericMethod.Invoke(null, [context.Services, configuration.GetSection(sectionName)]);
         }
     }
-
     private static void ConfigureLogger(ServiceConfigurationContext context)
     {
         context.Services.AddLogging(logging =>
@@ -125,7 +123,6 @@ public sealed class UserServiceHttpApiHostModule : AbpModule
     {
         context.Services.AddSingleton<AmazonCognitoIdentityProviderClient>();
     }
-
     private static void ConfigureSwagger(ServiceConfigurationContext context)
     {
         context.Services.AddSwaggerGen(options =>
@@ -190,7 +187,6 @@ public sealed class UserServiceHttpApiHostModule : AbpModule
             }
         });
     }
-
     private static void ConfigureAuthentication(
         ServiceConfigurationContext context, AuthOptions authOptions)
     {
@@ -265,7 +261,6 @@ public sealed class UserServiceHttpApiHostModule : AbpModule
                 );
             });
     }
-
     private void ConfigureDistributedCache()
     {
         Configure<AbpDistributedCacheOptions>(options =>
@@ -400,7 +395,6 @@ public sealed class UserServiceHttpApiHostModule : AbpModule
             });
         });
     }
-
     private static void ConfigureSwaggerUI(IApplicationBuilder app)
     {
         app.UseSwagger(options =>

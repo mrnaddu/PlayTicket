@@ -10,7 +10,7 @@ public class DbOfficeDbContextFactory : IDesignTimeDbContextFactory<DbOfficeDbCo
     public DbOfficeDbContext CreateDbContext(string[] args)
     {
         var builder = new DbContextOptionsBuilder<DbOfficeDbContext>()
-            .UseMySql(GetConnectionStringFromConfiguration(), MySqlServerVersion.LatestSupportedServerVersion);
+            .UseNpgsql(GetConnectionStringFromConfiguration());
 
         return new DbOfficeDbContext(builder.Options);
     }
